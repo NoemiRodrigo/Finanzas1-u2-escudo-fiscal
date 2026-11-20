@@ -1,0 +1,3 @@
+# Evita que Git cambie los fines de línea al clonar: si los cambiara,
+# el hash SHA-256 de los CSV ya no coincidiría con el del README.
+* -text

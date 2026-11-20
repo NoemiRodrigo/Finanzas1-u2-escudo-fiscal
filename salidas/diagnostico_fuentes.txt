@@ -1,0 +1,129 @@
+DIAGNÓSTICO DE FUENTES — 2026-11-19 23:09:04
+Python 3.15.2 | requests 2.34.2
+======================================================================
+1. ROBOTS.TXT
+======================================================================
+
+  URL: https://mvnet.smv.gob.pe/robots.txt
+  ERROR DE CONEXIÓN: ConnectTimeout: HTTPSConnectionPool(host='mvnet.smv.gob.pe', port=443): Max retries exceeded with url: /robots.txt (Caused by ConnectTimeoutError(<HTTPSConnection(host='mvnet.smv.gob.pe', port=443) at 0x16001baea50>, 'Connection to mvnet.smv.gob.pe timed out. (connect timeout=30)'))
+
+  URL: https://www.smv.gob.pe/robots.txt
+  HTTP: 200 | Tipo: text/html; charset=utf-8 | Bytes: 288027
+  Contenido (primeras 30 líneas):
+    | <!DOCTYPE html><html lang="es-pe"><head><meta content="La Superintendencia del Mercado de Valores (SMV) es un organismo técnico especializado que tiene por finalidad velar por la protección de los..." name="description" /><!-- Google Tag Manager -->
+    |       <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    |       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    |       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    |       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    |       })(window,document,'script','dataLayer','GTM-PDXDRQN3');</script>
+    |       <!-- End Google Tag Manager --><title>Superintendencia del Mercado de Valores - SMV - Plataforma del Estado Peruano</title><meta charset="UTF-8" /><meta content="width=device-width, initial-scale=1" name="viewport" /><meta content="H5efy5u72DDgqekf6xOfjd06S-f366QEbnkpXoDqcAg" name="google-site-verification" /><meta content="false" name="turbo-prefetch" /><meta name="csrf-param" content="authenticity_token" />
+    | <meta name="csrf-token" content="iVkx79IQGs9JkdsvYDFqZ9YWc4t_CWxOwbH76kQQZY42K8P91Wg1i2_RyLyZQUfxANNDMOz5IqXYEvkApmA4JQ" /><link rel="stylesheet" href="/assets/application_base-9d9deb51.css" /><link rel="stylesheet" href="/assets/application_base-9d9deb51.css" media="print" /><link rel="stylesheet" href="/assets/application_print-8986f2e8.css" media="print" /><link rel="stylesheet" href="/assets/application-7ceede2e.css" media="all" data-turbo-track="reload" /><script>//global object for fbjs and draftjs
+    | if (typeof global === 'undefined') {
+    |   window.global = window;
+    | }</script><script src="/assets/application_base-0df9432c.js" data-turbo-track="reload" defer="defer"></script><script src="/assets/application_institution-home-7705035f.js" data-turbo-track="reload" defer="defer"></script><script src="/assets/application_institution-1a23f0e9.js" data-turbo-track="reload" defer="defer"></script><meta content="@gobpePCM" name="twitter:site" /><meta content="@gobpePCM" name="twitter:creator" /><meta content="Superintendencia del Mercado de Valores - SMV" name="twitter:title" /><meta content="La Superintendencia del Mercado de Valores (SMV) es un organismo técnico especializado que tiene por finalidad velar por la protección de los... #gobpe" name="twitter:description" /><meta content="https://www.gob.pe/smv" property="og:url" /><meta content="article" property="og:type" /><meta content="Superintendencia del Mercado de Valores - SMV" property="og:title" /><meta content="La Superintendencia del Mercado de Valores (SMV) es un organismo técnico especializado que tiene por finalidad velar por la protección de los... #gobpe" property="og:description" /><meta content="summary" name="twitter:card" /><meta content="200" property="og:image:width" /><meta content="200" property="og:image:height" /><meta content="https://www.gob.pe/assets/escudo-rojo-200-f4bf73f7.png" property="og:image" /><link rel="apple-touch-icon" type="image/x-icon" href="/assets/favicons/apple-icon-57x57-42e0cdf0.png" sizes="57x57" /><link rel="apple-touch-icon" type="image/x-icon" href="/assets/favicons/apple-icon-60x60-5474857c.png" sizes="60x60" /><link rel="apple-touch-icon" type="image/x-icon" href="/assets/favicons/apple-icon-72x72-23a18d8b.png" sizes="72x72" /><link rel="apple-touch-icon" type="image/x-icon" href="/assets/favicons/apple-icon-76x76-6deed722.png" sizes="76x76" /><link rel="apple-touch-icon" type="image/x-icon" href="/assets/favicons/apple-icon-114x114-952c16d1.png" sizes="114x114" /><link rel="apple-touch-icon" type="image/x-icon" href="/assets/favicons/apple-icon-120x120-09c0093c.png" sizes="120x120" /><link rel="apple-touch-icon" type="image/x-icon" href="/assets/favicons/apple-icon-144x144-cfa8302f.png" sizes="144x144" /><link rel="apple-touch-icon" type="image/x-icon" href="/assets/favicons/apple-icon-152x152-657ce405.png" sizes="152x152" /><link rel="apple-touch-icon" type="image/x-icon" href="/assets/favicons/apple-icon-180x180-f85c0fca.png" sizes="180x180" /><link rel="icon" type="image/png" href="/assets/favicons/android-icon-192x192-ec1dea24.png" sizes="192x192" /><link rel="icon" type="image/x-icon" href="/assets/favicons/favicon-1760a09d.ico" /></head><body><!-- Google Tag Manager (noscript) -->
+    |       <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PDXDRQN3"
+    |       height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    |       <!-- End Google Tag Manager (noscript) --><a class="sr-only focus:not-sr-only text-primary underline p-4!" href="#main">Saltar a contenido principal</a><div class="nothing"></div><header aria-label="Encabezado principal" class="home bg-white shadow"><div class="container align-center relative"><div class="header__content w-full"><div class="header__half flex-align-center"><a aria-label="Ir a la página principal de gob.pe" class="logo black home__logo track-ga-interaction no-underline!" data-ga-element-type="icono-principal" data-ga-label="Logo gob.pe" href="/"><div class="home__logo__img_shield--small js-escudo md:hidden"><img height="40rem" alt="Logotipo de gob.pe, ir a la página pricipal" class="h-10" src="/assets/escudo_rojo_bicentenario-785637cc.svg" /></div><div class="home__logo__img--small"><img alt="Logotipo de gob.pe, ir a la página pricipal" class="img-logo" height="40rem" src="/assets/escudo_text_gobpe_bicentenario_rojo_2-f0bf4122.svg" /><img alt="" aria_hidden="true" class="d-none img-logo-focus" src="/assets/escudo_text_gobpe_bicentenario_black-b62ef1cc.svg" /></div></a></div><div class="w-220 md:w-310"><div class="search-internal"><form autocomplete="off" role="search" aria-label="Buscar en SMV" data-controller="" action="/institucion/smv/buscador" accept-charset="UTF-8" method="get"><div class="input-group no-print relative"><label class="visually-hidden" for="input-search-home-gobpe">Texto de búsqueda en gob.pe</label><input id="input-search-home-gobpe" placeholder="Buscar en SMV" class="search search_autocomplete h-14 rounded-lg border-2 border-gray-900 focus:border-transparent track-ga-search" data-url="https://www.gob.pe/searches_autocomplete.json" data-institution-id="23" data-target="" data-ga-label="buscador-Entidades" data-ga-element-type="buscador" type="search" name="term" /><input value="smv" autocomplete="off" type="hidden" name="institucion" id="institucion" /><input autocomplete="off" type="hidden" name="topic_id" id="topic_id" /><input value="" autocomplete="off" type="hidden" name="contenido" id="contenido" /><input value="none" autocomplete="off" type="hidden" name="sort_by" id="sort_by" /><button aria-label="Buscar" class="submit bg-gray-900 border-0 absolute inset-y-0 right-0 m-2 cursor-pointer p-2 rounded" disabled="true" id="btn-search-home-gobpe" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" class="w-6 h-6">
+    | <path d="M21.0086 18.2075H20.06L19.7238 17.8834C20.9005 16.5146 21.6089 14.7376 21.6089 12.8045C21.6089 8.494 18.1149 5 13.8045 5C9.494 5 6 8.494 6 12.8045C6 17.1149 9.494 20.6089 13.8045 20.6089C15.7376 20.6089 17.5146 19.9005 18.8834 18.7238L19.2075 19.06V20.0086L25.211 26L27 24.211L21.0086 18.2075ZM13.8045 18.2075C10.8148 18.2075 8.40137 15.7942 8.40137 12.8045C8.40137 9.81475 10.8148 7.40137 13.8045 7.40137C16.7942 7.40137 19.2075 9.81475 19.2075 12.8045C19.2075 15.7942 16.7942 18.2075 13.8045 18.2075Z" fill="white"></path>
+    | </svg></button></div></form></div></div></div></div></header><div class="react-modal"></div><div class="js-breadcrumb-full-width text-sm bg-gray-70 py-2.5"><div class="container md:max-w-6xl mx-auto px-4"><div class="row justify-between align-items-center mb-2"><div class="col-md-7"><nav aria-label="Ruta de páginas" class="col-md-12 px-4"><ol class="breadcrumb font-bold"><li class="breadcrumb-item hidden-sm-down hidden-md-down"><a aria-label="Inicio Gob.pe" class="track-ga-interaction" data-ga-element-type="link" data-ga-label="inicio" href="/"><div class="home__logo__img__breadcrumb" id="home">Inicio</div><div class="home__logo__img__breadcrumb hidden" id="escudo"><div class="mr-2"><img alt="gob.pe" class="h-8" height="32rem" src="/assets/escudo_text_gobpe_bicentenario-4656b576.svg" /></div></div></a></li><li class="breadcrumb-item hidden-sm-down hidden-md-down"><span class="hidden-sm-down hidden-md-down mx-1 md:mx-3"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 10.1 16.3" style="enable-background:new 0 0 10.1 16.3;" xml:space="preserve" width="10.1" height="16.3" aria-hidden="true" class="w-2">
+    | 	<path fill="currentColor" d="M0,14.4l6.2-6.2L0,1.9L2,0l8.1,8.1L2,16.3L0,14.4z"></path>
+    | </svg></span><span class="hidden-lg-up mx-1 md:mx-3"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 10.1 16.3" style="enable-background:new 0 0 10.1 16.3;" xml:space="preserve" width="10.1" height="16.3" aria-hidden="true" class="w-2">
+    | 	<path fill="currentColor" d="m 10.1,1.9 -6.2,6.2 6.2,6.3 -2,1.9 L 0,8.2 8.1,0 Z"></path>
+    | </svg></span><a class="track-ga-interaction font-bold ellipsis-breadcrumb" data-ga-element-type="link" data-ga-label="El Estado" href="/estado">El Estado</a></li><li class="breadcrumb-item"><span class="hidden-sm-down hidden-md-down mx-1 md:mx-3"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 10.1 16.3" style="enable-background:new 0 0 10.1 16.3;" xml:space="preserve" width="10.1" height="16.3" aria-hidden="true" class="w-2">
+    | 	<path fill="currentColor" d="M0,14.4l6.2-6.2L0,1.9L2,0l8.1,8.1L2,16.3L0,14.4z"></path>
+    | </svg></span><span class="hidden-lg-up mx-1 md:mx-3"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 10.1 16.3" style="enable-background:new 0 0 10.1 16.3;" xml:space="preserve" width="10.1" height="16.3" aria-hidden="true" class="w-2">
+    | 	<path fill="currentColor" d="m 10.1,1.9 -6.2,6.2 6.2,6.3 -2,1.9 L 0,8.2 8.1,0 Z"></path>
+    | </svg></span><a class="track-ga-interaction font-bold" data-ga-element-type="link" data-ga-label="MEF" href="/mef">MEF</a></li><li class="breadcrumb-item hidden-sm-down hidden-md-down"><span class="hidden-sm-down hidden-md-down mx-1 md:mx-3"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 10.1 16.3" style="enable-background:new 0 0 10.1 16.3;" xml:space="preserve" width="10.1" height="16.3" aria-hidden="true" class="w-2">
+    | 	<path fill="currentColor" d="M0,14.4l6.2-6.2L0,1.9L2,0l8.1,8.1L2,16.3L0,14.4z"></path>
+    | </svg></span><a aria-current="page">SMV</a></li></ol></nav></div></div></div></div><main aria-label="Contenido principal" role="main" id="main" class="yield js-sharect "><div class="navbar-institution-container bg-gray-70"><nav aria-label="Menú institucional" class="container hidden lg:block bg-white p-0 shadow" id="nav-institutional"><ul class="clicky-menu no-js flex h-full bg-gray-70" role="menu"><li aria-haspopup="true" class="flex-1 bg-white active" role="menuitem"><a class="px-6 py-3 h-full track-ga-interaction" data-ga-element-type="link" data-ga-institution="smv" data-ga-label="Inicio" data-ga-title-section="menu" href="/smv">Inicio </a></li><li aria-haspopup="true" class="flex-1 bg-white" role="menuitem"><a class="px-6 py-3 h-full track-ga-interaction" data-ga-element-type="link" data-ga-institution="smv" data-ga-label="Categorías" data-ga-title-section="menu" href="">Categorías <svg xmlns="http://www.w3.org/2000/svg" width="10" height="7" viewBox="0 0 10 7" fill="none" class="inline mr-2 w-3 js-title-arrow-menu inline w-5">
+    | <path d="M1.175 0.158325L5 3.97499L8.825 0.158325L10 1.33333L5 6.33333L0 1.33333L1.175 0.158325Z" fill="currentColor"></path>
+    | </svg></a><ul class="grid gap-x-8 border-r border-l border-b border-blue-200 p-9 bg-white grid-cols-3 submenu-columns-3" role="menu"><li role="menuitem"><a class="py-2 px-4 flex-align-center track-ga-interaction " data-ga-element-type="link" data-ga-label="Mercado de Valores y Fondos Colectivos" data-ga-institution="smv" data-ga-title-section="menu" href="/institucion/smv/tema/mercado-de-valores-y-fondos-colectivos">Mercado de Valores y Fondos Colectivos</a></li><li role="menuitem"><a class="py-2 px-4 flex-align-center track-ga-interaction " data-ga-element-type="link" data-ga-label="Defensoría del Inversionista" data-ga-institution="smv" data-ga-title-section="menu" href="/institucion/smv/tema/defensoria-del-inversionista-a8f1ad1a-1800-4fd7-82a7-def1a656806f">Defensoría del Inversionista</a></li><li role="menuitem"><a class="py-2 px-4 flex-align-center track-ga-interaction " data-ga-element-type="link" data-ga-label="Contacto con la SMV" data-ga-institution="smv" data-ga-title-section="menu" href="/institucion/smv/tema/contacto-con-la-smv">Contacto con la SMV</a></li><li role="menuitem"><a class="py-2 px-4 flex-align-center track-ga-interaction " data-ga-element-type="link" data-ga-label="Integridad" data-ga-institution="smv" data-ga-title-section="menu" href="/institucion/smv/tema/integridad">Integridad</a></li><li role="menuitem"><a class="py-2 px-4 flex-align-center track-ga-interaction " data-ga-element-type="link" data-ga-label="Regulación y sanciones" data-ga-institution="smv" data-ga-title-section="menu" href="/institucion/smv/tema/regulacion-y-sanciones">Regulación y sanciones</a></li><li role="menuitem"><a class="py-2 px-4 flex-align-center track-ga-interaction " data-ga-element-type="link" data-ga-label="Educación Financiera" data-ga-institution="smv" data-ga-title-section="menu" href="/institucion/smv/tema/educacion-financiera">Educación Financiera</a></li><li role="menuitem"><a class="py-2 px-4 flex-align-center track-ga-interaction " data-ga-element-type="link" data-ga-label="Transparencia" data-ga-institution="smv" data-ga-title-section="menu" href="/institucion/smv/tema/transparencia">Transparencia</a></li><li role="menuitem"><a class="py-2 px-4 flex-align-center track-ga-interaction " data-ga-element-type="link" data-ga-label="Hechos de Importancia" data-ga-institution="smv" data-ga-title-section="menu" href="/institucion/smv/tema/hechos-de-importancia">Hechos de Importancia</a></li><li role="menuitem"><a class="py-2 px-4 flex-align-center track-ga-interaction " data-ga-element-type="link" data-ga-label="Información Financiera" data-ga-institution="smv" data-ga-title-section="menu" href="/institucion/smv/tema/informacion-financiera">Información Financiera</a></li><div class="col-span-3"><hr aria-hidden="" class="border border-blue-200 w-full my-8" /></div><div class="col-span-3 flex justify-center"><a class="btn-see-all-nav track-ga-interaction w-half" data-ga-element-type="boton" data-ga-institution="smv" data-ga-label="Todas las categorías" data-ga-title-section="menu" href="/institucion/smv/temas">Todas las categorías<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 10.1 16.3" style="enable-background:new 0 0 10.1 16.3;" xml:space="preserve" width="10.1" height="16.3" class="ml-4">
+    | 	<path fill="currentColor" d="M0,14.4l6.2-6.2L0,1.9L2,0l8.1,8.1L2,16.3L0,14.4z"></path>
+    | </svg></a></div></ul></li><li aria-haspopup="true" class="flex-1 bg-white" role="menuitem"><a class="px-6 py-3 h-full track-ga-interaction" data-ga-element-type="link" data-ga-institution="smv" data-ga-label="Trámites y servicios" data-ga-title-section="menu" href="">Trámites y servicios <svg xmlns="http://www.w3.org/2000/svg" width="10" height="7" viewBox="0 0 10 7" fill="none" class="inline mr-2 w-3 js-title-arrow-menu inline w-5">
+
+  URL: https://estadisticas.bcrp.gob.pe/robots.txt
+  HTTP: 404 | Tipo: text/html; charset=UTF-8 | Bytes: 952
+
+  URL: https://www.bvl.com.pe/robots.txt
+  HTTP: 200 | Tipo: text/html; charset=UTF-8 | Bytes: 9030
+  Contenido (primeras 30 líneas):
+    | <!doctype html>
+    | <html lang="es">
+    | 
+    | <head>
+    |     <meta charset="utf-8">
+    |     <title>Bolsa de Valores de Lima</title>
+    |     <base href="/">
+    |     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    |     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    |     <link rel="stylesheet" href="assets/styles/pre-loading.css">
+    |     <script>
+    |         if (global === undefined) {
+    |             var global = window;
+    |         }
+    |         if (dataLayer === undefined) {
+    |             var dataLayer = [];
+    |         }
+    |     </script>
+    |     <script src="https://cdn.embluemail.com/pixeltracking/pixeltracking.js?code=9f0c5dd58da94122ca96467bda8b74c0"></script>
+    |     <!-- Hotjar Tracking Code for https://www.bvl.com.pe/ -->
+    |     <script>
+    |         (function(h, o, t, j, a, r) {
+    |             h.hj = h.hj || function() {
+    |                 (h.hj.q = h.hj.q || []).push(arguments)
+    |             };
+    |             h._hjSettings = {
+    |                 hjid: 2025690,
+    |                 hjsv: 6
+    |             };
+    |             a = o.getElementsByTagName('head')[0];
+
+======================================================================
+2. API DE DATOS ABIERTOS DE LA SMV
+======================================================================
+
+- Situación financiera 2024-P1-I
+  URL: https://mvnet.smv.gob.pe/SMV.OData.Api/api/InfFinanciera/SituacionFinancieraSMV?sEjercicio=2024&sPeriodo=1&sTipoInf=I
+  ERROR DE CONEXIÓN: ConnectTimeout: HTTPSConnectionPool(host='mvnet.smv.gob.pe', port=443): Max retries exceeded with url: /SMV.OData.Api/api/InfFinanciera/SituacionFinancieraSMV?sEjercicio=2024&sPeriodo=1&sTipoInf=I (Caused by ConnectTimeoutError(<HTTPSConnection(host='mvnet.smv.gob.pe', port=443) at 0x16001ca4b90>, 'Connection to mvnet.smv.gob.pe timed out. (connect timeout=30)'))
+
+- Situación financiera 2013-P1-I
+  URL: https://mvnet.smv.gob.pe/SMV.OData.Api/api/InfFinanciera/SituacionFinancieraSMV?sEjercicio=2013&sPeriodo=1&sTipoInf=I
+  ERROR DE CONEXIÓN: ConnectTimeout: HTTPSConnectionPool(host='mvnet.smv.gob.pe', port=443): Max retries exceeded with url: /SMV.OData.Api/api/InfFinanciera/SituacionFinancieraSMV?sEjercicio=2013&sPeriodo=1&sTipoInf=I (Caused by ConnectTimeoutError(<HTTPSConnection(host='mvnet.smv.gob.pe', port=443) at 0x16001ca65d0>, 'Connection to mvnet.smv.gob.pe timed out. (connect timeout=30)'))
+
+- Situación financiera 2024-P4-I
+  URL: https://mvnet.smv.gob.pe/SMV.OData.Api/api/InfFinanciera/SituacionFinancieraSMV?sEjercicio=2024&sPeriodo=4&sTipoInf=I
+  ERROR DE CONEXIÓN: ConnectTimeout: HTTPSConnectionPool(host='mvnet.smv.gob.pe', port=443): Max retries exceeded with url: /SMV.OData.Api/api/InfFinanciera/SituacionFinancieraSMV?sEjercicio=2024&sPeriodo=4&sTipoInf=I (Caused by ConnectTimeoutError(<HTTPSConnection(host='mvnet.smv.gob.pe', port=443) at 0x16001ca6850>, 'Connection to mvnet.smv.gob.pe timed out. (connect timeout=30)'))
+
+- PRUEBA nombre 'ResultadosSMV'
+  URL: https://mvnet.smv.gob.pe/SMV.OData.Api/api/InfFinanciera/ResultadosSMV?sEjercicio=2024&sPeriodo=1&sTipoInf=I
+  ERROR DE CONEXIÓN: ConnectTimeout: HTTPSConnectionPool(host='mvnet.smv.gob.pe', port=443): Max retries exceeded with url: /SMV.OData.Api/api/InfFinanciera/ResultadosSMV?sEjercicio=2024&sPeriodo=1&sTipoInf=I (Caused by ConnectTimeoutError(<HTTPSConnection(host='mvnet.smv.gob.pe', port=443) at 0x16001ca5590>, 'Connection to mvnet.smv.gob.pe timed out. (connect timeout=30)'))
+
+- PRUEBA nombre 'EstadoResultadosSMV'
+  URL: https://mvnet.smv.gob.pe/SMV.OData.Api/api/InfFinanciera/EstadoResultadosSMV?sEjercicio=2024&sPeriodo=1&sTipoInf=I
+  ERROR DE CONEXIÓN: ConnectTimeout: HTTPSConnectionPool(host='mvnet.smv.gob.pe', port=443): Max retries exceeded with url: /SMV.OData.Api/api/InfFinanciera/EstadoResultadosSMV?sEjercicio=2024&sPeriodo=1&sTipoInf=I (Caused by ConnectTimeoutError(<HTTPSConnection(host='mvnet.smv.gob.pe', port=443) at 0x16001ca5950>, 'Connection to mvnet.smv.gob.pe timed out. (connect timeout=30)'))
+
+- PRUEBA nombre 'EstResultadoSMV'
+  URL: https://mvnet.smv.gob.pe/SMV.OData.Api/api/InfFinanciera/EstResultadoSMV?sEjercicio=2024&sPeriodo=1&sTipoInf=I
+  ERROR DE CONEXIÓN: ConnectTimeout: HTTPSConnectionPool(host='mvnet.smv.gob.pe', port=443): Max retries exceeded with url: /SMV.OData.Api/api/InfFinanciera/EstResultadoSMV?sEjercicio=2024&sPeriodo=1&sTipoInf=I (Caused by ConnectTimeoutError(<HTTPSConnection(host='mvnet.smv.gob.pe', port=443) at 0x16001c0fc50>, 'Connection to mvnet.smv.gob.pe timed out. (connect timeout=30)'))
+
+- PRUEBA nombre 'ResultadoSMV'
+  URL: https://mvnet.smv.gob.pe/SMV.OData.Api/api/InfFinanciera/ResultadoSMV?sEjercicio=2024&sPeriodo=1&sTipoInf=I
+  ERROR DE CONEXIÓN: ConnectTimeout: HTTPSConnectionPool(host='mvnet.smv.gob.pe', port=443): Max retries exceeded with url: /SMV.OData.Api/api/InfFinanciera/ResultadoSMV?sEjercicio=2024&sPeriodo=1&sTipoInf=I (Caused by ConnectTimeoutError(<HTTPSConnection(host='mvnet.smv.gob.pe', port=443) at 0x16001c0f390>, 'Connection to mvnet.smv.gob.pe timed out. (connect timeout=30)'))
+
+======================================================================
+3. API DEL BCRP — EMBIG PERÚ (PN01129XM)
+======================================================================
+  URL: https://estadisticas.bcrp.gob.pe/estadisticas/series/api/PN01129XM/json/2013-1/2025-12
+  HTTP: 200 | Tipo: text/html; charset=UTF-8 | Bytes: 8016
+  Nombre oficial: Indicadores de riesgo para países emergentes: EMBIG - Diferencial de Rendimientos del Índice de Bonos de Mercados Emergentes (EMBIG) - Perú
+  Periodos recibidos: 156
+  Primero: {'name': 'Ene.2013', 'values': ['110.04348']} | Último: {'name': 'Dic.2025', 'values': ['127']}
+
+======================================================================
+4. YAHOO FINANCE — ACCIONES DE LA BVL
+======================================================================
+  Versión de yfinance: 1.8.0
+  ALICORC1.LM: 156 meses | desde 2013-01-01 hasta 2025-12-01
+  UNACEMC1.LM: 156 meses | desde 2013-01-01 hasta 2025-12-01
+  FERREYC1.LM: 156 meses | desde 2013-01-01 hasta 2025-12-01
+  ^SPBLPGPT: sin datos

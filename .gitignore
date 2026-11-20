@@ -1,0 +1,11 @@
+# Claves personales: nunca se suben al repositorio
+.env
+
+# Entorno virtual y archivos temporales de Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Respaldos automáticos de los scripts
+*_respaldo_*
