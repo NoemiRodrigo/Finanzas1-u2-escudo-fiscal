@@ -1,4 +1,4 @@
-# Autora: Noemi Julia Rodrigo Quinto
+# Estudiante: Noemi Julia Rodrigo Quinto
 # Código de matrícula: 2024200521A
 # Tema S10 · El costo del capital: El escudo fiscal y su efecto sobre el costo de capital de las empresas peruanas
 # Fecha de procesamiento: se registra en log_ejecucion.txt en cada ejecución
@@ -16,6 +16,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+from openpyxl.styles import Alignment, Font, PatternFill
 
 # =============================================================================
 # 1. PARÁMETROS
@@ -80,6 +81,73 @@ def registrar(mensaje, log):
 
 def sha256(archivo):
     return hashlib.sha256(archivo.read_bytes()).hexdigest()
+
+
+# Hoja "diccionario" de la copia en Excel: variable, grupo, descripción, unidad, fuente y cuándo queda vacía
+DICCIONARIO_EXCEL = [
+    ("ticker", "Identificación", "Emisora (código Yahoo Finance)", "texto", "BVL / Yahoo", "Nunca"),
+    ("anio", "Identificación", "Año", "entero", "BVL", "Nunca"),
+    ("trimestre", "Identificación", "Trimestre (1 a 4)", "entero", "BVL", "Nunca"),
+    ("periodo", "Identificación", "Año y trimestre (AAAAQn)", "texto", "BVL", "Nunca"),
+    ("moneda", "Identificación", "Moneda del estado financiero", "PEN / USD", "BVL", "Nunca"),
+    ("gasto_financiero", "Variable del tema", "Gastos financieros del trimestre (2D0402)", "miles", "BVL (scraping)", "Nunca"),
+    ("utilidad_antes_impuestos", "Variable del tema", "Utilidad antes de impuestos (2D04ST)", "miles", "BVL (scraping)", "Nunca"),
+    ("impuesto_renta", "Variable del tema", "Impuesto a la renta del trimestre (2D0502)", "miles", "BVL (scraping)", "Nunca"),
+    ("deuda", "Variable del tema", "Pasivos financieros corrientes + no corrientes (1D0309 + 1D0401)", "miles", "BVL (scraping)", "Nunca"),
+    ("patrimonio", "Insumo para el WACC", "Total patrimonio (1D07ST)", "miles", "BVL (scraping)", "Nunca"),
+    ("activo_total", "Insumo para el WACC", "Total de activos (1D020T)", "miles", "BVL (scraping)", "Nunca"),
+    ("rf", "Insumo para el WACC", "Tasa libre de riesgo: bono del Tesoro EE. UU. 10 años (^TNX)", "%", "Yahoo Finance (API)", "Nunca"),
+    ("riesgo_pais", "Insumo para el WACC", "EMBIG Perú (PN01129XM)", "%", "BCRP (API)", "Nunca"),
+    ("beta_bruta", "Insumo para el WACC", "Beta estimada con 36 meses previos frente al Índice General BVL", "—", "Yahoo + BCRP", "Menos de 24 meses de precios previos"),
+    ("beta", "Insumo para el WACC", "Beta ajustada de Blume: 0,67 x beta bruta + 0,33", "—", "Calculada", "Menos de 24 meses de precios previos"),
+    ("prima_mercado", "Insumo para el WACC", "Prima de riesgo de mercado (Damodaran, 2025)", "%", "Parámetro", "Nunca"),
+    ("tasa_legal", "Insumo para el WACC", "Tasa legal del impuesto a la renta", "%", "Normas legales", "Nunca"),
+    ("tasa_efectiva", "Variable del tema", "Impuesto a la renta / utilidad antes de impuestos x 100", "%", "Calculada", "Utilidad antes de impuestos <= 0 (pérdida)"),
+    ("escudo_fiscal", "Resultado del tema", "Tasa legal x gasto financiero", "miles", "Calculada", "Nunca"),
+    ("escudo_fiscal_activos", "Resultado del tema", "Escudo fiscal / activo total x 100", "%", "Calculada", "Nunca"),
+    ("deuda_material", "Insumo para el WACC", "1 si deuda / activo total >= 5 %", "0/1", "Calculada", "Nunca"),
+    ("kd", "Insumo para el WACC", "Costo de la deuda: gasto financiero x 4 / deuda x 100", "% anual", "Calculada", "Deuda menor al 5 % del activo"),
+    ("peso_deuda", "Insumo para el WACC", "D/V = deuda / (deuda + patrimonio)", "proporción", "Calculada", "Patrimonio negativo"),
+    ("ke", "Insumo para el WACC", "Costo del patrimonio: rf + beta x prima + riesgo país", "%", "Calculada", "Falta beta"),
+    ("wacc", "Variable del tema", "WACC con escudo fiscal", "%", "Calculada", "Falta ke o peso_deuda"),
+    ("wacc_sin_escudo", "Resultado del tema", "WACC sin escudo fiscal", "%", "Calculada", "Falta ke o peso_deuda"),
+    ("reduccion_wacc", "Resultado del tema", "WACC sin escudo - WACC con escudo", "p. p.", "Calculada", "Falta ke o peso_deuda"),
+    ("atipico_tasa_efectiva", "Control de calidad", "1 si tasa efectiva < 0 % o > 100 %", "0/1", "Calculada", "Nunca"),
+    ("atipico_kd", "Control de calidad", "1 si kd > 40 %", "0/1", "Calculada", "Nunca"),
+]
+
+
+def dar_formato(hoja, anchos=None):
+    # Encabezado: negrita, fondo verde, texto blanco; fila fija y filtros
+    for celda in hoja[1]:
+        celda.font = Font(bold=True, color="FFFFFF")
+        celda.fill = PatternFill("solid", fgColor="1F5C2E")
+        celda.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
+    hoja.freeze_panes = "A2"
+    hoja.auto_filter.ref = hoja.dimensions
+    for i, columna in enumerate(hoja.columns):
+        ancho = anchos[i] if anchos else max(len(str(c.value)) for c in columna[:60] if c.value is not None) + 2
+        hoja.column_dimensions[columna[0].column_letter].width = min(max(ancho, 9), 60)
+
+
+def guardar_excel(tabla, log):
+    # Copia en Excel de la base procesada (solo para revisión; la base oficial es el CSV)
+    ruta = PROCESADO.with_suffix(".xlsx")
+    tabla = tabla.astype({"anio": int, "trimestre": int})   # años y trimestres como números
+    diccionario = pd.DataFrame(DICCIONARIO_EXCEL,
+                               columns=["Variable", "Grupo", "Descripción", "Unidad", "Fuente", "Queda vacía cuando"])
+    with pd.ExcelWriter(ruta, engine="openpyxl") as libro:
+        tabla.to_excel(libro, sheet_name="datos_procesados", index=False)
+        diccionario.to_excel(libro, sheet_name="diccionario", index=False)
+        dar_formato(libro.sheets["datos_procesados"])
+        dar_formato(libro.sheets["diccionario"], anchos=[24, 21, 60, 11, 20, 40])
+        # Las 6 variables del tema resaltadas en verde claro
+        for fila in libro.sheets["diccionario"].iter_rows(min_row=2):
+            if fila[1].value == "Variable del tema":
+                for celda in fila:
+                    celda.fill = PatternFill("solid", fgColor="D9EAD3")
+                    celda.font = Font(bold=True)
+    registrar(f"Copia en Excel: {ruta.relative_to(CARPETA_PROYECTO)}", log)
 
 
 def leer_crudo(archivo, log):
@@ -350,6 +418,7 @@ def main():
         registrar(f"Datos procesados: {len(final)} filas, {final.shape[1]} columnas, "
                   f"{final['ticker'].nunique()} emisoras, {final['periodo'].min()} a {final['periodo'].max()}", log)
         registrar(f"Guardado: {PROCESADO.relative_to(CARPETA_PROYECTO)} (SHA-256 {sha256(PROCESADO)})", log)
+        guardar_excel(final.round(6), log)
         estado = "OK"
 
     except ErrorLimpieza as e:
