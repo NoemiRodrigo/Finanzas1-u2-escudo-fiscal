@@ -1,0 +1,14 @@
+Variable dependiente: D/V (%),(1) MCO agrupado,(2) Efectos fijos empresa,(3) EF empresa y año
+Escudo fiscal / activos (%),"69,654***","47,944***","49,300***"
+Escudo fiscal / activos (%) (e. e.),"(17,200)","(8,520)","(7,251)"
+"Rentabilidad del activo, ROA (%)","-0,281**","-0,170","-0,158"
+"Rentabilidad del activo, ROA (%) (e. e.)","(0,113)","(0,115)","(0,108)"
+"Riesgo país, EMBIG (%)","3,691*","2,228",
+"Riesgo país, EMBIG (%) (e. e.)","(1,978)","(1,696)",
+Tasa legal del IR (%),"-0,724","-1,691",
+Tasa legal del IR (%) (e. e.),"(1,450)","(1,357)",
+Efectos fijos de empresa,No,Sí,Sí
+Efectos fijos de año,No,No,Sí
+Observaciones,1 015,1 015,1 015
+Empresas,20,20,20
+R²,"0,276","0,677","0,694"

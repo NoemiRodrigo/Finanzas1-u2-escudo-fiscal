@@ -1,0 +1,27 @@
+\begin{table}[htbp]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Escudo fiscal y endeudamiento: regresión de panel}
+\label{tab:tabla4_regresion}
+\begin{tabular}{l>{\centering\arraybackslash}p{2.6cm}>{\centering\arraybackslash}p{2.6cm}>{\centering\arraybackslash}p{2.6cm}}
+\toprule
+Variable dependiente: D/V (\%) & (1) MCO agrupado & (2) Efectos fijos empresa & (3) EF empresa y año \\
+\midrule
+Escudo fiscal / activos (\%) & 69,654*** & 47,944*** & 49,300*** \\
+ & (17,200) & (8,520) & (7,251) \\
+Rentabilidad del activo, ROA (\%) & $-$0,281** & $-$0,170 & $-$0,158 \\
+ & (0,113) & (0,115) & (0,108) \\
+Riesgo país, EMBIG (\%) & 3,691* & 2,228 &  \\
+ & (1,978) & (1,696) &  \\
+Tasa legal del IR (\%) & $-$0,724 & $-$1,691 &  \\
+ & (1,450) & (1,357) &  \\
+Efectos fijos de empresa & No & Sí & Sí \\
+Efectos fijos de año & No & No & Sí \\
+Observaciones & 1 015 & 1 015 & 1 015 \\
+Empresas & 20 & 20 & 20 \\
+R² & 0,276 & 0,677 & 0,694 \\
+\bottomrule
+\end{tabular}
+\par\vspace{2pt}\footnotesize\raggedright \textit{Nota.} Errores estándar agrupados por empresa entre paréntesis. *** p < 0,01; ** p < 0,05; * p < 0,10. ROA recortado en los percentiles 1 y 99. En (3) los efectos fijos de año absorben la tasa legal y el riesgo país.
+\end{table}
