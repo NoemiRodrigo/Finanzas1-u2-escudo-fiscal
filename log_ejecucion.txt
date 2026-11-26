@@ -1,0 +1,416 @@
+[2026-11-20 01:11:14] ===== INICIO DE EXTRACCIÓN (01_extraccion_api.py) =====
+[2026-11-20 01:11:14] Periodo solicitado: 2010-01 a 2025-12
+[2026-11-20 01:11:14] Endpoint BCRP: https://estadisticas.bcrp.gob.pe/estadisticas/series/api/PN01129XM-PN01142MM/json/2010-1/2025-12/esp
+[2026-11-20 01:11:15] BCRP intento 1: código HTTP 200
+[2026-11-20 01:11:15] BCRP PN01129XM -> embig_peru_pb: Indicadores de riesgo para países emergentes: EMBIG - Diferencial de Rendimientos del Índice de Bonos de Mercados Emergentes (EMBIG) - Perú
+[2026-11-20 01:11:15] BCRP PN01142MM -> indice_general_bvl: Bolsa de Valores de Lima - Índices Bursátiles - Índice General BVL (base 31/12/91 = 100)
+[2026-11-20 01:11:15] Yahoo Finance mediante yfinance 1.8.0
+[2026-11-20 01:11:17] Yahoo ALICORC1.LM (Alicorp): 192 meses, 2010-01 a 2025-12
+[2026-11-20 01:11:19] Yahoo UNACEMC1.LM (Unacem): 192 meses, 2010-01 a 2025-12
+[2026-11-20 01:11:21] Yahoo FERREYC1.LM (Ferreycorp): 192 meses, 2010-01 a 2025-12
+[2026-11-20 01:11:22] Yahoo CPACASC1.LM (Cementos Pacasmayo): 192 meses, 2010-01 a 2025-12
+[2026-11-20 01:11:24] Yahoo CORAREI1.LM (Corporación Aceros Arequipa): 192 meses, 2010-01 a 2025-12
+[2026-11-20 01:11:26] Yahoo SIDERC1.LM (Siderperú): 192 meses, 2010-01 a 2025-12
+[2026-11-20 01:11:28] Yahoo BACKUSI1.LM (Backus): 192 meses, 2010-01 a 2025-12
+[2026-11-20 01:11:29] Yahoo MINSURI1.LM (Minsur): 192 meses, 2010-01 a 2025-12
+[2026-11-20 01:11:31] Yahoo VOLCABC1.LM (Volcan): 192 meses, 2010-01 a 2025-12
+[2026-11-20 01:11:33] Yahoo ATACOBC1.LM (Atacocha): 192 meses, 2010-01 a 2025-12
+[2026-11-20 01:11:35] Yahoo BVN.LM (Buenaventura): 192 meses, 2010-01 a 2025-12
+[2026-11-20 01:11:36] Yahoo CVERDEC1.LM (Cerro Verde): 192 meses, 2010-01 a 2025-12
+[2026-11-20 01:11:38] Yahoo ENGIEC1.LM (Engie Energía Perú): 192 meses, 2010-01 a 2025-12
+[2026-11-20 01:11:40] Yahoo LUSURC1.LM (Luz del Sur): 192 meses, 2010-01 a 2025-12
+[2026-11-20 01:11:42] Yahoo AUSTRAC1.LM (Austral Group): 192 meses, 2010-01 a 2025-12
+[2026-11-20 01:11:43] Yahoo AIHC1.LM (Andino Investment Holding): 167 meses, 2012-02 a 2025-12
+[2026-11-20 01:11:45] Yahoo INRETC1.LM (InRetail Perú): 159 meses, 2012-10 a 2025-12
+[2026-11-20 01:11:48] Yahoo GRAMONC1.LM (Graña y Montero (nemónico anterior de Aenza)): sin datos
+[2026-11-20 01:11:50] Yahoo GLORIAI1.LM (Leche Gloria): 192 meses, 2010-01 a 2025-12
+[2026-11-20 01:11:53] Yahoo ENDISPC1.LM (Enel Distribución Perú (hoy Pluz Energía)): sin datos
+[2026-11-20 01:11:55] Yahoo ENGEPEC1.LM (Enel Generación Perú): sin datos
+[2026-11-20 01:11:57] Yahoo TELEFBC1.LM (Telefónica del Perú): sin datos
+[2026-11-20 01:11:59] Yahoo MINCORI1.LM (Sociedad Minera Corona): sin datos
+[2026-11-20 01:12:01] Yahoo NEXAPEC1.LM (Nexa Resources Perú (ex Milpo)): 192 meses, 2010-01 a 2025-12
+[2026-11-20 01:12:03] Yahoo LAIVEBC1.LM (Laive): sin datos
+[2026-11-20 01:12:05] Yahoo CERVESC1.LM (Corporación Cervesur): sin datos
+[2026-11-20 01:12:07] Yahoo ETERNII1.LM (Fábrica Peruana Eternit): sin datos
+[2026-11-20 01:12:09] Yahoo EXALMC1.LM (Pesquera Exalmar): 163 meses, 2012-06 a 2025-12
+[2026-11-20 01:12:11] Yahoo ^TNX (Bono Tesoro EE. UU. 10 años): 192 meses, 2010-01 a 2025-12
+[2026-11-20 01:12:11] Yahoo: 20 de 28 emisoras con datos; sin datos: ['GRAMONC1.LM', 'ENDISPC1.LM', 'ENGEPEC1.LM', 'TELEFBC1.LM', 'MINCORI1.LM', 'LAIVEBC1.LM', 'CERVESC1.LM', 'ETERNII1.LM']
+[2026-11-20 01:12:11] BCRP: 192 meses, 2010-01 a 2025-12
+[2026-11-20 01:12:11] Yahoo: 3945 filas (ticker x mes)
+[2026-11-20 01:12:11] Guardado: datos_crudos\datos_crudos_api_bcrp_2024200521A.json (SHA-256 29bd67eb93f8404d685ad7469a1f2185be129d8ef36f405177c75676684cca83)
+[2026-11-20 01:12:11] Guardado: datos_crudos\datos_crudos_api_bcrp_2024200521A.csv (SHA-256 38a83efae658265093d8804c77d7e11f08e0c699b648be9ee2373c03a62d6a4b)
+[2026-11-20 01:12:11] Guardado: datos_crudos\datos_crudos_api_yahoo_2024200521A.csv (SHA-256 22f19712846d061316a7e23ef09b075d59c1a75da963cc850de4de81884beb74)
+[2026-11-20 01:12:11] ===== FIN. Estado: OK =====
+
+[2026-11-20 02:06:52] ===== INICIO DE EXTRACCIÓN (02_scraping_web.py) =====
+[2026-11-20 02:06:52] Fuente: portal de la BVL. Años: 2013 a 2025. Pausa entre solicitudes: 1.5 s
+[2026-11-20 02:06:54] robots.txt https://www.bvl.com.pe/robots.txt: HTTP 200, text/html; charset=UTF-8 -> el dominio no publica reglas de rastreo
+[2026-11-20 02:06:56] robots.txt https://dataondemand.bvl.com.pe/robots.txt: HTTP 404, text/html;charset=utf-8 -> el dominio no publica reglas de rastreo
+[2026-11-20 02:06:59] Lista de emisoras: 265 empresas en el portal
+[2026-11-20 02:06:59] Emisoras con código RPJ: 20 de 20; sin código: []
+[2026-11-20 02:06:59] ALICORC1.LM — ALICORP S.A.A. (RPJ B30006)
+[2026-11-20 02:09:20]   -> 52 respuestas, 5989 cuentas, 52 trimestres con datos
+[2026-11-20 02:09:20] UNACEMC1.LM — UNACEM CORP S.A.A.  (RPJ B30121)
+[2026-11-20 02:11:38]   -> 52 respuestas, 5989 cuentas, 52 trimestres con datos
+[2026-11-20 02:11:39] FERREYC1.LM — FERREYCORP S.A.A. (RPJ B60001)
+[2026-11-20 02:13:58]   -> 52 respuestas, 5989 cuentas, 52 trimestres con datos
+[2026-11-20 02:13:59] CPACASC1.LM — CEMENTOS PACASMAYO S.A.A. (RPJ CD0005)
+[2026-11-20 02:16:17]   -> 52 respuestas, 5989 cuentas, 52 trimestres con datos
+[2026-11-20 02:16:17] CORAREI1.LM — CORPORACION ACEROS AREQUIPA S.A. (RPJ CI0003)
+[2026-11-20 02:18:37]   -> 52 respuestas, 5989 cuentas, 52 trimestres con datos
+[2026-11-20 02:18:37] SIDERC1.LM — EMPRESA SIDERURGICA DEL PERU S.A.A. (RPJ CM0003)
+[2026-11-20 02:20:59]   -> 52 respuestas, 5989 cuentas, 52 trimestres con datos
+[2026-11-20 02:21:00] BACKUSI1.LM — UNION DE CERVECERIAS PERUANAS BACKUS Y JOHNSTON S.A.A. (RPJ B30021)
+[2026-11-20 02:23:21]   -> 52 respuestas, 5989 cuentas, 52 trimestres con datos
+[2026-11-20 02:23:21] MINSURI1.LM — MINSUR S.A. (RPJ A20032)
+[2026-11-20 02:25:39]   -> 52 respuestas, 5989 cuentas, 52 trimestres con datos
+[2026-11-20 02:25:39] VOLCABC1.LM — VOLCAN COMPAÑIA MINERA S.A.A. (RPJ CM0001)
+[2026-11-20 02:27:58]   -> 52 respuestas, 5989 cuentas, 52 trimestres con datos
+[2026-11-20 02:27:59] ATACOBC1.LM — NEXA RESOURCES ATACOCHA S.A.A. (RPJ CM0007)
+[2026-11-20 02:30:17]   -> 51 respuestas, 5873 cuentas, 51 trimestres con datos
+[2026-11-20 02:30:17] BVN.LM — COMPAÑÍA DE MINAS BUENAVENTURA S.A.A. (RPJ B20003)
+[2026-11-20 02:32:36]   -> 52 respuestas, 5989 cuentas, 52 trimestres con datos
+[2026-11-20 02:32:36] CVERDEC1.LM — SOCIEDAD MINERA CERRO VERDE S.A.A. (RPJ CM0006)
+[2026-11-20 02:34:54]   -> 52 respuestas, 5989 cuentas, 52 trimestres con datos
+[2026-11-20 02:34:54] ENGIEC1.LM — ENGIE ENERGIA PERU S.A.A. (RPJ 002829)
+[2026-11-20 02:37:12]   -> 52 respuestas, 5989 cuentas, 52 trimestres con datos
+[2026-11-20 02:37:12] LUSURC1.LM — LUZ DEL SUR S.A.A. (RPJ B40008)
+[2026-11-20 02:39:32]   -> 52 respuestas, 5989 cuentas, 52 trimestres con datos
+[2026-11-20 02:39:32] AUSTRAC1.LM — AUSTRAL GROUP S.A.A. (RPJ CI0006)
+[2026-11-20 02:41:52]   -> 52 respuestas, 5989 cuentas, 52 trimestres con datos
+[2026-11-20 02:41:52] AIHC1.LM — ANDINO INVESTMENT HOLDING S.A.A. (RPJ J40120)
+[2026-11-20 02:44:12]   -> 52 respuestas, 5989 cuentas, 52 trimestres con datos
+[2026-11-20 02:44:13] INRETC1.LM — INRETAIL PERÚ CORP. (RPJ OE5087)
+[2026-11-20 02:46:31]   -> 52 respuestas, 5989 cuentas, 52 trimestres con datos
+[2026-11-20 02:46:32] GLORIAI1.LM — LECHE GLORIA S.A. (RPJ 006166)
+[2026-11-20 02:48:50]   -> 52 respuestas, 5989 cuentas, 52 trimestres con datos
+[2026-11-20 02:48:51] NEXAPEC1.LM — NEXA RESOURCES PERU S.A.A. (RPJ B20010)
+[2026-11-20 02:51:11]   -> 52 respuestas, 5989 cuentas, 52 trimestres con datos
+[2026-11-20 02:51:11] EXALMC1.LM — PESQUERA EXALMAR S.A.A. (RPJ CI0012)
+[2026-11-20 02:53:30]   -> 52 respuestas, 5989 cuentas, 52 trimestres con datos
+[2026-11-20 02:53:33] Cobertura (trimestres con datos por empresa):
+[2026-11-20 02:53:33]   AIHC1.LM: balance=52, resultados=52
+[2026-11-20 02:53:33]   ALICORC1.LM: balance=52, resultados=52
+[2026-11-20 02:53:33]   ATACOBC1.LM: balance=51, resultados=51
+[2026-11-20 02:53:33]   AUSTRAC1.LM: balance=52, resultados=52
+[2026-11-20 02:53:33]   BACKUSI1.LM: balance=52, resultados=52
+[2026-11-20 02:53:33]   BVN.LM: balance=52, resultados=52
+[2026-11-20 02:53:33]   CORAREI1.LM: balance=52, resultados=52
+[2026-11-20 02:53:33]   CPACASC1.LM: balance=52, resultados=52
+[2026-11-20 02:53:33]   CVERDEC1.LM: balance=52, resultados=52
+[2026-11-20 02:53:33]   ENGIEC1.LM: balance=52, resultados=52
+[2026-11-20 02:53:33]   EXALMC1.LM: balance=52, resultados=52
+[2026-11-20 02:53:33]   FERREYC1.LM: balance=52, resultados=52
+[2026-11-20 02:53:33]   GLORIAI1.LM: balance=52, resultados=52
+[2026-11-20 02:53:33]   INRETC1.LM: balance=52, resultados=52
+[2026-11-20 02:53:33]   LUSURC1.LM: balance=52, resultados=52
+[2026-11-20 02:53:33]   MINSURI1.LM: balance=52, resultados=52
+[2026-11-20 02:53:33]   NEXAPEC1.LM: balance=52, resultados=52
+[2026-11-20 02:53:33]   SIDERC1.LM: balance=52, resultados=52
+[2026-11-20 02:53:33]   UNACEMC1.LM: balance=52, resultados=52
+[2026-11-20 02:53:33]   VOLCABC1.LM: balance=52, resultados=52
+[2026-11-20 02:53:33] Estados no usados (quedan en los JSON): ['ESTADO DE CAMBIOS EN EL PATRIMONIO NETO DEL 01/01/2013 AL 30', 'ESTADO DE CAMBIOS EN EL PATRIMONIO NETO DEL 01/01/2013 AL 31', 'ESTADO DE CAMBIOS EN EL PATRIMONIO NETO DEL 01/01/2014 AL 30', 'ESTADO DE CAMBIOS EN EL PATRIMONIO NETO DEL 01/01/2014 AL 31', 'ESTADO DE CAMBIOS EN EL PATRIMONIO NETO DEL 01/01/2015 AL 30', 'ESTADO DE CAMBIOS EN EL PATRIMONIO NETO DEL 01/01/2015 AL 31', 'ESTADO DE CAMBIOS EN EL PATRIMONIO NETO DEL 01/01/2016 AL 30', 'ESTADO DE CAMBIOS EN EL PATRIMONIO NETO DEL 01/01/2016 AL 31', 'ESTADO DE CAMBIOS EN EL PATRIMONIO NETO DEL 01/01/2017 AL 30', 'ESTADO DE CAMBIOS EN EL PATRIMONIO NETO DEL 01/01/2017 AL 31', 'ESTADO DE CAMBIOS EN EL PATRIMONIO NETO DEL 01/01/2018 AL 30', 'ESTADO DE CAMBIOS EN EL PATRIMONIO NETO DEL 01/01/2018 AL 31', 'ESTADO DE CAMBIOS EN EL PATRIMONIO NETO DEL 01/01/2019 AL 30', 'ESTADO DE CAMBIOS EN EL PATRIMONIO NETO DEL 01/01/2019 AL 31', 'ESTADO DE CAMBIOS EN EL PATRIMONIO NETO DEL 01/01/2020 AL 30', 'ESTADO DE CAMBIOS EN EL PATRIMONIO NETO DEL 01/01/2020 AL 31', 'ESTADO DE CAMBIOS EN EL PATRIMONIO NETO DEL 01/01/2021 AL 30', 'ESTADO DE CAMBIOS EN EL PATRIMONIO NETO DEL 01/01/2021 AL 31', 'ESTADO DE CAMBIOS EN EL PATRIMONIO NETO DEL 01/01/2022 AL 30', 'ESTADO DE CAMBIOS EN EL PATRIMONIO NETO DEL 01/01/2022 AL 31', 'ESTADO DE CAMBIOS EN EL PATRIMONIO NETO DEL 01/01/2023 AL 30', 'ESTADO DE CAMBIOS EN EL PATRIMONIO NETO DEL 01/01/2023 AL 31', 'ESTADO DE CAMBIOS EN EL PATRIMONIO NETO DEL 01/01/2024 AL 30', 'ESTADO DE CAMBIOS EN EL PATRIMONIO NETO DEL 01/01/2024 AL 31', 'ESTADO DE CAMBIOS EN EL PATRIMONIO NETO DEL 01/01/2025 AL 30', 'ESTADO DE CAMBIOS EN EL PATRIMONIO NETO DEL 01/01/2025 AL 31', 'ESTADO DE FLUJOS DE EFECTIVO', 'ESTADO DE RESULTADOS INTEGRALES / <I>STATEMENT OF COMPREHENS', 'ESTADO DE RESULTADOS INTEGRALES / STATEMENT OF COMPREHENSIVE']
+[2026-11-20 02:53:33] Filas del CSV: 119664 | Emisoras: 20
+[2026-11-20 02:53:33] Guardado: datos_crudos\datos_crudos_scraping_bvl_2024200521A.csv (SHA-256 1d2109b626743a4f6e0de7b312160cfb63e1a0b79c9ea2d1615b1addb772c72e)
+[2026-11-20 02:53:33] Guardado: datos_crudos\emisores_bvl_2024200521A.csv (SHA-256 ad46b4b199f2fe413b08923123e31309de0be9e0dc11e73edd6feabc0aced650)
+[2026-11-20 02:53:33] Guardado: datos_crudos\bvl_json\emisores_search_2024200521A.json (SHA-256 1ea5825517b833224c95cd2bb11ffaac0cd33f5d3108f548738299ebc569cc12)
+[2026-11-20 02:53:33] Guardado: datos_crudos\bvl_json\ALICORC1_2024200521A.json.gz (SHA-256 a2d0f046c32155a175812d5dbb7b0d78792e14febc8006eef3a1d452bda5ea03)
+[2026-11-20 02:53:33] Guardado: datos_crudos\bvl_json\UNACEMC1_2024200521A.json.gz (SHA-256 b19c1afa005bc7e5c8d30e0a0b6f59d63ab4514c931cf093eb6fe0d122f809e3)
+[2026-11-20 02:53:33] Guardado: datos_crudos\bvl_json\FERREYC1_2024200521A.json.gz (SHA-256 1645fcce27e5a2c1feeb118b2bbef7dc05e1d51a98d2d59a2769b75c4906387b)
+[2026-11-20 02:53:33] Guardado: datos_crudos\bvl_json\CPACASC1_2024200521A.json.gz (SHA-256 3f23b16b737ff2984d1d87c37390662414282600f7e9781df9d8be9190f1845a)
+[2026-11-20 02:53:33] Guardado: datos_crudos\bvl_json\CORAREI1_2024200521A.json.gz (SHA-256 b4a8e761b10d643982e99b05057c32cba6a1f6e4ad0c03643e87c4b28cfb18d6)
+[2026-11-20 02:53:33] Guardado: datos_crudos\bvl_json\SIDERC1_2024200521A.json.gz (SHA-256 8982d97ea9aa26d8578b3ee6b00f7263e2560684b106655198b9a28587093e5a)
+[2026-11-20 02:53:33] Guardado: datos_crudos\bvl_json\BACKUSI1_2024200521A.json.gz (SHA-256 7a7ba758ffb741402e50c33267a56e1c9130dbdc793cb2ab022cb90b51d6c6bf)
+[2026-11-20 02:53:33] Guardado: datos_crudos\bvl_json\MINSURI1_2024200521A.json.gz (SHA-256 6e6c9ccba7b26fc53ca0add83357912e2c7707658993c19b2f0df0007db8ecd6)
+[2026-11-20 02:53:33] Guardado: datos_crudos\bvl_json\VOLCABC1_2024200521A.json.gz (SHA-256 0fe9125877c772b523378521590b53c1a69ab4445f2ee90fffb0d43a785460e7)
+[2026-11-20 02:53:33] Guardado: datos_crudos\bvl_json\ATACOBC1_2024200521A.json.gz (SHA-256 5735d982f5ebba4e6ccb1c82e877cbe2a0fb06b0226945cefa025f88f1b06477)
+[2026-11-20 02:53:33] Guardado: datos_crudos\bvl_json\BVN_2024200521A.json.gz (SHA-256 26c710c4e5bedc836d141c768b19f0b72f3df08aecb9572f7d0bf0b593bd9834)
+[2026-11-20 02:53:33] Guardado: datos_crudos\bvl_json\CVERDEC1_2024200521A.json.gz (SHA-256 60455d06442063c4a52706e642798f8211b836b07aef2a3b14fb4fdd4a1fd20c)
+[2026-11-20 02:53:33] Guardado: datos_crudos\bvl_json\ENGIEC1_2024200521A.json.gz (SHA-256 ea1b6ea9dbed0c95015766785c3b476d6ea73fde825307fa237a9c8d808f0a46)
+[2026-11-20 02:53:33] Guardado: datos_crudos\bvl_json\LUSURC1_2024200521A.json.gz (SHA-256 77a2cec1b24bb88f4b1cfcc525002777106a04591958f403e2cbdf847a69783f)
+[2026-11-20 02:53:33] Guardado: datos_crudos\bvl_json\AUSTRAC1_2024200521A.json.gz (SHA-256 859e01fa523aa6d45992ad085ca288a2f059db28cf22f1133dd62e2c30a194f1)
+[2026-11-20 02:53:33] Guardado: datos_crudos\bvl_json\AIHC1_2024200521A.json.gz (SHA-256 1545b2354fae995f649e60ef74f72b43a3e4d0fb5d60e0400dd3c6693a4b48ee)
+[2026-11-20 02:53:33] Guardado: datos_crudos\bvl_json\INRETC1_2024200521A.json.gz (SHA-256 33f229a579f08bfdb73399d0cceee1df3f37e8574c3c7118f780cf15d42343dc)
+[2026-11-20 02:53:33] Guardado: datos_crudos\bvl_json\GLORIAI1_2024200521A.json.gz (SHA-256 09fbfa71467d9364cf92c659fad2a46de35e69512922b07b4df8183cb1b0c2dc)
+[2026-11-20 02:53:33] Guardado: datos_crudos\bvl_json\NEXAPEC1_2024200521A.json.gz (SHA-256 88fb226dabf6cf639e19f26feb28e59dc78bd38c151f6fb85893190c52fab9de)
+[2026-11-20 02:53:33] Guardado: datos_crudos\bvl_json\EXALMC1_2024200521A.json.gz (SHA-256 acd9aad963c153d382e71aaeaa5f2fbafec0383e0a9a8f6aa4fcb79940917fd9)
+[2026-11-20 02:53:33] Duración: 46.7 minutos
+[2026-11-20 02:53:33] ===== FIN. Estado: OK =====
+
+[2026-11-20 03:30:28] ===== INICIO DE LIMPIEZA (03_limpieza_datos.py) =====
+[2026-11-20 03:30:28] Leído datos_crudos\datos_crudos_scraping_bvl_2024200521A.csv: 119664 filas (SHA-256 1d2109b626743a4f6e0de7b312160cfb63e1a0b79c9ea2d1615b1addb772c72e)
+[2026-11-20 03:30:28] Leído datos_crudos\datos_crudos_api_yahoo_2024200521A.csv: 3945 filas (SHA-256 22f19712846d061316a7e23ef09b075d59c1a75da963cc850de4de81884beb74)
+[2026-11-20 03:30:28] Leído datos_crudos\datos_crudos_api_bcrp_2024200521A.csv: 192 filas (SHA-256 38a83efae658265093d8804c77d7e11f08e0c699b648be9ee2373c03a62d6a4b)
+[2026-11-20 03:30:28] BVL: 920 cuentas reenviadas descartadas (se conserva el envío más reciente)
+[2026-11-20 03:30:28] ADVERTENCIA BVL: 9 trimestres con gasto financiero positivo en la fuente; se usa su valor absoluto
+[2026-11-20 03:30:28] Control: activo = pasivo + patrimonio en 1039 de 1039 trimestres
+[2026-11-20 03:30:28] Control: UAI - impuesto = utilidad de operaciones continuas en 1039 de 1039 trimestres
+[2026-11-20 03:30:30] Betas estimadas: 1024 de 1040 emisora-trimestres (ventana 36 meses, mínimo 24)
+[2026-11-20 03:30:30] Panel: 1039 de 1040 emisora-trimestres posibles
+[2026-11-20 03:30:30] Trimestres sin estados financieros: ['ATACOBC1.LM 2023Q1']
+[2026-11-20 03:30:30] Deuda material (>= 5.0 % del activo): 832 de 1039 emisora-trimestres; el resto se trata como no endeudado en el WACC
+[2026-11-20 03:30:30] Atípicos marcados (no eliminados): tasa efectiva fuera de 0-100 % = 98; kd > 40.0 % = 6
+[2026-11-20 03:30:30] Valores faltantes por variable: beta_bruta=16, beta=16, tasa_efectiva=185, kd=207, peso_deuda=18, ke=16, wacc=34, wacc_sin_escudo=34, reduccion_wacc=34
+[2026-11-20 03:30:30] Datos procesados: 1039 filas, 29 columnas, 20 emisoras, 2013Q1 a 2025Q4
+[2026-11-20 03:30:30] Guardado: datos_procesados\datos_procesados_2024200521A.csv (SHA-256 5613d24f71888554352a1d9e801dc219181fd362aea8abf7d7a11fa1197859de)
+[2026-11-20 03:30:30] ===== FIN. Estado: OK =====
+
+[2026-11-20 15:18:04] ===== INICIO DE ANÁLISIS (04_analisis.py) =====
+[2026-11-20 15:18:04] Leído datos_procesados_2024200521A.csv: 1039 filas (SHA-256 5613d24f71888554352a1d9e801dc219181fd362aea8abf7d7a11fa1197859de)
+[2026-11-20 15:18:04] Tabla: tabla1_descriptivos.csv y tabla1_descriptivos.tex
+[2026-11-20 15:18:04] Tabla: tabla2_por_anio.csv y tabla2_por_anio.tex
+[2026-11-20 15:18:04] Tabla: tabla3_por_empresa.csv y tabla3_por_empresa.tex
+[2026-11-20 15:18:04] Regresión (1) MCO agrupado: b(escudo)=69.654, ee=17.200, p=0.0007, R2=0.276, n=1015
+[2026-11-20 15:18:04] Regresión (2) Efectos fijos empresa: b(escudo)=47.944, ee=8.520, p=0.0000, R2=0.677, n=1015
+[2026-11-20 15:18:04] Regresión (3) EF empresa y año: b(escudo)=49.300, ee=7.251, p=0.0000, R2=0.694, n=1015
+[2026-11-20 15:18:04] Tabla: tabla4_regresion.csv y tabla4_regresion.tex
+[2026-11-20 15:18:04] Figura: figura1_wacc_con_sin_escudo.png
+[2026-11-20 15:18:05] Figura: figura2_reduccion_por_empresa.png
+[2026-11-20 15:18:05] Figura: figura3_riesgo_pais_ke.png
+[2026-11-20 15:18:06] Figura: figura4_escudo_vs_deuda.png
+[2026-11-20 15:18:06] Observaciones: 1039 emisora-trimestres, 20 emisoras, 2013Q1 a 2025Q4
+[2026-11-20 15:18:06] Mediana WACC con escudo: 6.91 %
+[2026-11-20 15:18:06] Mediana WACC sin escudo: 7.55 %
+[2026-11-20 15:18:06] Mediana reducción del WACC por el escudo fiscal: 0.49 p. p.
+[2026-11-20 15:18:06] Mediana tasa efectiva (sin atípicos): 29.25 %
+[2026-11-20 15:18:06] Emisora con mayor reducción: EXALMC1 (1.08 p. p.)
+[2026-11-20 15:18:06] Emisora con menor reducción: BACKUSI1 (0.00 p. p.)
+[2026-11-20 15:18:06] ===== FIN. Estado: OK =====
+
+[2026-11-22 00:59:32] ===== INICIO DE ANÁLISIS (04_analisis.py) =====
+[2026-11-22 00:59:32] Leído datos_procesados_2024200521A.csv: 1039 filas (SHA-256 5613d24f71888554352a1d9e801dc219181fd362aea8abf7d7a11fa1197859de)
+[2026-11-22 00:59:32] Tabla: tabla1_descriptivos.csv y tabla1_descriptivos.tex
+[2026-11-22 00:59:32] Tabla: tabla2_por_anio.csv y tabla2_por_anio.tex
+[2026-11-22 00:59:32] Tabla: tabla3_por_empresa.csv y tabla3_por_empresa.tex
+[2026-11-22 00:59:32] Regresión (1) MCO agrupado: b(escudo)=69.654, ee=17.200, p=0.0007, R2=0.276, n=1015
+[2026-11-22 00:59:32] Regresión (2) Efectos fijos empresa: b(escudo)=47.944, ee=8.520, p=0.0000, R2=0.677, n=1015
+[2026-11-22 00:59:33] Regresión (3) EF empresa y año: b(escudo)=49.300, ee=7.251, p=0.0000, R2=0.694, n=1015
+[2026-11-22 00:59:33] Tabla: tabla4_regresion.csv y tabla4_regresion.tex
+[2026-11-22 00:59:34] Figura: figura1_wacc_con_sin_escudo.png
+[2026-11-22 00:59:35] Figura: figura2_reduccion_por_empresa.png
+[2026-11-22 00:59:36] Figura: figura3_riesgo_pais_ke.png
+[2026-11-22 00:59:37] Figura: figura4_escudo_vs_deuda.png
+[2026-11-22 00:59:37] Observaciones: 1039 emisora-trimestres, 20 emisoras, 2013Q1 a 2025Q4
+[2026-11-22 00:59:37] Mediana WACC con escudo: 6.91 %
+[2026-11-22 00:59:37] Mediana WACC sin escudo: 7.55 %
+[2026-11-22 00:59:37] Mediana reducción del WACC por el escudo fiscal: 0.49 p. p.
+[2026-11-22 00:59:37] Mediana tasa efectiva (sin atípicos): 29.25 %
+[2026-11-22 00:59:37] Emisora con mayor reducción: EXALMC1 (1.08 p. p.)
+[2026-11-22 00:59:37] Emisora con menor reducción: BACKUSI1 (0.00 p. p.)
+[2026-11-22 00:59:37] ===== FIN. Estado: OK =====
+
+[2026-11-22 01:20:26] ===== INICIO DE ANÁLISIS (04_analisis.py) =====
+[2026-11-22 01:20:26] Leído datos_procesados_2024200521A.csv: 1039 filas (SHA-256 5613d24f71888554352a1d9e801dc219181fd362aea8abf7d7a11fa1197859de)
+[2026-11-22 01:20:26] Tabla: tabla1_descriptivos.csv y tabla1_descriptivos.tex
+[2026-11-22 01:20:26] Tabla: tabla2_por_anio.csv y tabla2_por_anio.tex
+[2026-11-22 01:20:26] Tabla: tabla3_por_empresa.csv y tabla3_por_empresa.tex
+[2026-11-22 01:20:26] Regresión (1) MCO agrupado: b(escudo)=69.654, ee=17.200, p=0.0007, R2=0.276, n=1015
+[2026-11-22 01:20:26] Regresión (2) Efectos fijos empresa: b(escudo)=47.944, ee=8.520, p=0.0000, R2=0.677, n=1015
+[2026-11-22 01:20:26] Regresión (3) EF empresa y año: b(escudo)=49.300, ee=7.251, p=0.0000, R2=0.694, n=1015
+[2026-11-22 01:20:26] Tabla: tabla4_regresion.csv y tabla4_regresion.tex
+[2026-11-22 01:20:27] Figura: figura1_wacc_con_sin_escudo.png
+[2026-11-22 01:20:28] Figura: figura2_reduccion_por_empresa.png
+[2026-11-22 01:20:29] Figura: figura3_riesgo_pais_ke.png
+[2026-11-22 01:20:30] Figura: figura4_escudo_vs_deuda.png
+[2026-11-22 01:20:30] Observaciones: 1039 emisora-trimestres, 20 emisoras, 2013Q1 a 2025Q4
+[2026-11-22 01:20:30] Mediana WACC con escudo: 6.91 %
+[2026-11-22 01:20:30] Mediana WACC sin escudo: 7.55 %
+[2026-11-22 01:20:30] Mediana reducción del WACC por el escudo fiscal: 0.49 p. p.
+[2026-11-22 01:20:30] Mediana tasa efectiva (sin atípicos): 29.25 %
+[2026-11-22 01:20:30] Emisora con mayor reducción: EXALMC1 (1.08 p. p.)
+[2026-11-22 01:20:30] Emisora con menor reducción: BACKUSI1 (0.00 p. p.)
+[2026-11-22 01:20:30] ===== FIN. Estado: OK =====
+
+[2026-11-22 23:38:43] ===== INICIO DE LIMPIEZA (03_limpieza_datos.py) =====
+[2026-11-22 23:38:44] Leído datos_crudos\datos_crudos_scraping_bvl_2024200521A.csv: 119664 filas (SHA-256 1d2109b626743a4f6e0de7b312160cfb63e1a0b79c9ea2d1615b1addb772c72e)
+[2026-11-22 23:38:44] Leído datos_crudos\datos_crudos_api_yahoo_2024200521A.csv: 3945 filas (SHA-256 22f19712846d061316a7e23ef09b075d59c1a75da963cc850de4de81884beb74)
+[2026-11-22 23:38:44] Leído datos_crudos\datos_crudos_api_bcrp_2024200521A.csv: 192 filas (SHA-256 38a83efae658265093d8804c77d7e11f08e0c699b648be9ee2373c03a62d6a4b)
+[2026-11-22 23:38:44] BVL: 920 cuentas reenviadas descartadas (se conserva el envío más reciente)
+[2026-11-22 23:38:45] ADVERTENCIA BVL: 9 trimestres con gasto financiero positivo en la fuente; se usa su valor absoluto
+[2026-11-22 23:38:45] Control: activo = pasivo + patrimonio en 1039 de 1039 trimestres
+[2026-11-22 23:38:45] Control: UAI - impuesto = utilidad de operaciones continuas en 1039 de 1039 trimestres
+[2026-11-22 23:38:46] Betas estimadas: 1024 de 1040 emisora-trimestres (ventana 36 meses, mínimo 24)
+[2026-11-22 23:38:46] Panel: 1039 de 1040 emisora-trimestres posibles
+[2026-11-22 23:38:46] Trimestres sin estados financieros: ['ATACOBC1.LM 2023Q1']
+[2026-11-22 23:38:46] Deuda material (>= 5.0 % del activo): 832 de 1039 emisora-trimestres; el resto se trata como no endeudado en el WACC
+[2026-11-22 23:38:46] Atípicos marcados (no eliminados): tasa efectiva fuera de 0-100 % = 98; kd > 40.0 % = 6
+[2026-11-22 23:38:46] Valores faltantes por variable: beta_bruta=16, beta=16, tasa_efectiva=185, kd=207, peso_deuda=18, ke=16, wacc=34, wacc_sin_escudo=34, reduccion_wacc=34
+[2026-11-22 23:38:46] Archivo anterior movido a datos_procesados\respaldos\datos_procesados_2024200521A_20261122_233846.csv
+[2026-11-22 23:38:46] Datos procesados: 1039 filas, 29 columnas, 20 emisoras, 2013Q1 a 2025Q4
+[2026-11-22 23:38:46] Guardado: datos_procesados\datos_procesados_2024200521A.csv (SHA-256 5613d24f71888554352a1d9e801dc219181fd362aea8abf7d7a11fa1197859de)
+[2026-11-22 23:38:46] ===== FIN. Estado: OK =====
+
+[2026-11-22 23:40:42] ===== INICIO DE ANÁLISIS (04_analisis.py) =====
+[2026-11-22 23:40:42] Leído datos_procesados_2024200521A.csv: 1039 filas (SHA-256 5613d24f71888554352a1d9e801dc219181fd362aea8abf7d7a11fa1197859de)
+[2026-11-22 23:40:42] Tabla: tabla1_descriptivos.csv y tabla1_descriptivos.tex
+[2026-11-22 23:40:42] Tabla: tabla2_por_anio.csv y tabla2_por_anio.tex
+[2026-11-22 23:40:42] Tabla: tabla3_por_empresa.csv y tabla3_por_empresa.tex
+[2026-11-22 23:40:42] Regresión (1) MCO agrupado: b(escudo)=69.654, ee=17.200, p=0.0007, R2=0.276, n=1015
+[2026-11-22 23:40:42] Regresión (2) Efectos fijos empresa: b(escudo)=47.944, ee=8.520, p=0.0000, R2=0.677, n=1015
+[2026-11-22 23:40:42] Regresión (3) EF empresa y año: b(escudo)=49.300, ee=7.251, p=0.0000, R2=0.694, n=1015
+[2026-11-22 23:40:42] Tabla: tabla4_regresion.csv y tabla4_regresion.tex
+[2026-11-22 23:40:43] Figura: figura1_wacc_con_sin_escudo.png
+[2026-11-22 23:40:44] Figura: figura2_reduccion_por_empresa.png
+[2026-11-22 23:40:44] Figura: figura3_riesgo_pais_ke.png
+[2026-11-22 23:40:45] Figura: figura4_escudo_vs_deuda.png
+[2026-11-22 23:40:45] Observaciones: 1039 emisora-trimestres, 20 emisoras, 2013Q1 a 2025Q4
+[2026-11-22 23:40:45] Mediana WACC con escudo: 6.91 %
+[2026-11-22 23:40:45] Mediana WACC sin escudo: 7.55 %
+[2026-11-22 23:40:45] Mediana reducción del WACC por el escudo fiscal: 0.49 p. p.
+[2026-11-22 23:40:45] Mediana tasa efectiva (sin atípicos): 29.25 %
+[2026-11-22 23:40:45] Emisora con mayor reducción: EXALMC1 (1.08 p. p.)
+[2026-11-22 23:40:45] Emisora con menor reducción: BACKUSI1 (0.00 p. p.)
+[2026-11-22 23:40:45] ===== FIN. Estado: OK =====
+
+[2026-11-22 23:57:10] ===== INICIO DE LIMPIEZA (03_limpieza_datos.py) =====
+[2026-11-22 23:57:11] Leído datos_crudos\datos_crudos_scraping_bvl_2024200521A.csv: 119664 filas (SHA-256 1d2109b626743a4f6e0de7b312160cfb63e1a0b79c9ea2d1615b1addb772c72e)
+[2026-11-22 23:57:11] Leído datos_crudos\datos_crudos_api_yahoo_2024200521A.csv: 3945 filas (SHA-256 22f19712846d061316a7e23ef09b075d59c1a75da963cc850de4de81884beb74)
+[2026-11-22 23:57:11] Leído datos_crudos\datos_crudos_api_bcrp_2024200521A.csv: 192 filas (SHA-256 38a83efae658265093d8804c77d7e11f08e0c699b648be9ee2373c03a62d6a4b)
+[2026-11-22 23:57:11] BVL: 920 cuentas reenviadas descartadas (se conserva el envío más reciente)
+[2026-11-22 23:57:11] ADVERTENCIA BVL: 9 trimestres con gasto financiero positivo en la fuente; se usa su valor absoluto
+[2026-11-22 23:57:11] Control: activo = pasivo + patrimonio en 1039 de 1039 trimestres
+[2026-11-22 23:57:11] Control: UAI - impuesto = utilidad de operaciones continuas en 1039 de 1039 trimestres
+[2026-11-22 23:57:12] Betas estimadas: 1024 de 1040 emisora-trimestres (ventana 36 meses, mínimo 24)
+[2026-11-22 23:57:12] Panel: 1039 de 1040 emisora-trimestres posibles
+[2026-11-22 23:57:12] Trimestres sin estados financieros: ['ATACOBC1.LM 2023Q1']
+[2026-11-22 23:57:12] Deuda material (>= 5.0 % del activo): 832 de 1039 emisora-trimestres; el resto se trata como no endeudado en el WACC
+[2026-11-22 23:57:12] Atípicos marcados (no eliminados): tasa efectiva fuera de 0-100 % = 98; kd > 40.0 % = 6
+[2026-11-22 23:57:12] Valores faltantes por variable: beta_bruta=16, beta=16, tasa_efectiva=185, kd=207, peso_deuda=18, ke=16, wacc=34, wacc_sin_escudo=34, reduccion_wacc=34
+[2026-11-22 23:57:12] Archivo anterior movido a datos_procesados\respaldos\datos_procesados_2024200521A_20261122_235712.csv
+[2026-11-22 23:57:12] Datos procesados: 1039 filas, 29 columnas, 20 emisoras, 2013Q1 a 2025Q4
+[2026-11-22 23:57:12] Guardado: datos_procesados\datos_procesados_2024200521A.csv (SHA-256 5613d24f71888554352a1d9e801dc219181fd362aea8abf7d7a11fa1197859de)
+[2026-11-22 23:57:14] Copia en Excel: datos_procesados\datos_procesados_2024200521A.xlsx
+[2026-11-22 23:57:14] ===== FIN. Estado: OK =====
+
+[2026-11-23 00:09:54] ===== INICIO DE LIMPIEZA (03_limpieza_datos.py) =====
+[2026-11-23 00:09:55] Leído datos_crudos\datos_crudos_scraping_bvl_2024200521A.csv: 119664 filas (SHA-256 1d2109b626743a4f6e0de7b312160cfb63e1a0b79c9ea2d1615b1addb772c72e)
+[2026-11-23 00:09:55] Leído datos_crudos\datos_crudos_api_yahoo_2024200521A.csv: 3945 filas (SHA-256 22f19712846d061316a7e23ef09b075d59c1a75da963cc850de4de81884beb74)
+[2026-11-23 00:09:55] Leído datos_crudos\datos_crudos_api_bcrp_2024200521A.csv: 192 filas (SHA-256 38a83efae658265093d8804c77d7e11f08e0c699b648be9ee2373c03a62d6a4b)
+[2026-11-23 00:09:55] BVL: 920 cuentas reenviadas descartadas (se conserva el envío más reciente)
+[2026-11-23 00:09:55] ADVERTENCIA BVL: 9 trimestres con gasto financiero positivo en la fuente; se usa su valor absoluto
+[2026-11-23 00:09:55] Control: activo = pasivo + patrimonio en 1039 de 1039 trimestres
+[2026-11-23 00:09:55] Control: UAI - impuesto = utilidad de operaciones continuas en 1039 de 1039 trimestres
+[2026-11-23 00:09:56] Betas estimadas: 1024 de 1040 emisora-trimestres (ventana 36 meses, mínimo 24)
+[2026-11-23 00:09:56] Panel: 1039 de 1040 emisora-trimestres posibles
+[2026-11-23 00:09:56] Trimestres sin estados financieros: ['ATACOBC1.LM 2023Q1']
+[2026-11-23 00:09:56] Deuda material (>= 5.0 % del activo): 832 de 1039 emisora-trimestres; el resto se trata como no endeudado en el WACC
+[2026-11-23 00:09:56] Atípicos marcados (no eliminados): tasa efectiva fuera de 0-100 % = 98; kd > 40.0 % = 6
+[2026-11-23 00:09:56] Valores faltantes por variable: beta_bruta=16, beta=16, tasa_efectiva=185, kd=207, peso_deuda=18, ke=16, wacc=34, wacc_sin_escudo=34, reduccion_wacc=34
+[2026-11-23 00:09:56] Archivo anterior movido a datos_procesados\respaldos\datos_procesados_2024200521A_20261123_000956.csv
+[2026-11-23 00:09:56] Datos procesados: 1039 filas, 29 columnas, 20 emisoras, 2013Q1 a 2025Q4
+[2026-11-23 00:09:56] Guardado: datos_procesados\datos_procesados_2024200521A.csv (SHA-256 5613d24f71888554352a1d9e801dc219181fd362aea8abf7d7a11fa1197859de)
+[2026-11-23 00:09:57] Copia en Excel: datos_procesados\datos_procesados_2024200521A.xlsx
+[2026-11-23 00:09:57] ===== FIN. Estado: OK =====
+
+[2026-11-23 00:30:45] ===== INICIO DE LIMPIEZA (03_limpieza_datos.py) =====
+[2026-11-23 00:30:46] Leído datos_crudos\datos_crudos_scraping_bvl_2024200521A.csv: 119664 filas (SHA-256 1d2109b626743a4f6e0de7b312160cfb63e1a0b79c9ea2d1615b1addb772c72e)
+[2026-11-23 00:30:46] Leído datos_crudos\datos_crudos_api_yahoo_2024200521A.csv: 3945 filas (SHA-256 22f19712846d061316a7e23ef09b075d59c1a75da963cc850de4de81884beb74)
+[2026-11-23 00:30:46] Leído datos_crudos\datos_crudos_api_bcrp_2024200521A.csv: 192 filas (SHA-256 38a83efae658265093d8804c77d7e11f08e0c699b648be9ee2373c03a62d6a4b)
+[2026-11-23 00:30:46] BVL: 920 cuentas reenviadas descartadas (se conserva el envío más reciente)
+[2026-11-23 00:30:46] ADVERTENCIA BVL: 9 trimestres con gasto financiero positivo en la fuente; se usa su valor absoluto
+[2026-11-23 00:30:46] Control: activo = pasivo + patrimonio en 1039 de 1039 trimestres
+[2026-11-23 00:30:46] Control: UAI - impuesto = utilidad de operaciones continuas en 1039 de 1039 trimestres
+[2026-11-23 00:30:49] Betas estimadas: 1024 de 1040 emisora-trimestres (ventana 36 meses, mínimo 24)
+[2026-11-23 00:30:49] Panel: 1039 de 1040 emisora-trimestres posibles
+[2026-11-23 00:30:49] Trimestres sin estados financieros: ['ATACOBC1.LM 2023Q1']
+[2026-11-23 00:30:49] Deuda material (>= 5.0 % del activo): 832 de 1039 emisora-trimestres; el resto se trata como no endeudado en el WACC
+[2026-11-23 00:30:49] Atípicos marcados (no eliminados): tasa efectiva fuera de 0-100 % = 98; kd > 40.0 % = 6
+[2026-11-23 00:30:49] Valores faltantes por variable: beta_bruta=16, beta=16, tasa_efectiva=185, kd=207, peso_deuda=18, ke=16, wacc=34, wacc_sin_escudo=34, reduccion_wacc=34
+[2026-11-23 00:30:49] Archivo anterior movido a datos_procesados\respaldos\datos_procesados_2024200521A_20261123_003049.csv
+[2026-11-23 00:30:49] Datos procesados: 1039 filas, 29 columnas, 20 emisoras, 2013Q1 a 2025Q4
+[2026-11-23 00:30:49] Guardado: datos_procesados\datos_procesados_2024200521A.csv (SHA-256 5613d24f71888554352a1d9e801dc219181fd362aea8abf7d7a11fa1197859de)
+[2026-11-23 00:30:49] ERROR INESPERADO: PermissionError: [Errno 13] Permission denied: 'C:\\Users\\NOEMI\\Documents\\TRABAJOS UNIVERSIDAD-CICLO 5\\FINANZAS 1\\3_BASE_DATOS_CODIGO\\datos_procesados\\datos_procesados_2024200521A.xlsx'
+[2026-11-23 00:30:49] ===== FIN. Estado: ERROR =====
+
+[2026-11-23 00:36:45] ===== INICIO DE LIMPIEZA (03_limpieza_datos.py) =====
+[2026-11-23 00:36:46] Leído datos_crudos\datos_crudos_scraping_bvl_2024200521A.csv: 119664 filas (SHA-256 1d2109b626743a4f6e0de7b312160cfb63e1a0b79c9ea2d1615b1addb772c72e)
+[2026-11-23 00:36:46] Leído datos_crudos\datos_crudos_api_yahoo_2024200521A.csv: 3945 filas (SHA-256 22f19712846d061316a7e23ef09b075d59c1a75da963cc850de4de81884beb74)
+[2026-11-23 00:36:46] Leído datos_crudos\datos_crudos_api_bcrp_2024200521A.csv: 192 filas (SHA-256 38a83efae658265093d8804c77d7e11f08e0c699b648be9ee2373c03a62d6a4b)
+[2026-11-23 00:36:46] BVL: 920 cuentas reenviadas descartadas (se conserva el envío más reciente)
+[2026-11-23 00:36:46] ADVERTENCIA BVL: 9 trimestres con gasto financiero positivo en la fuente; se usa su valor absoluto
+[2026-11-23 00:36:46] Control: activo = pasivo + patrimonio en 1039 de 1039 trimestres
+[2026-11-23 00:36:46] Control: UAI - impuesto = utilidad de operaciones continuas en 1039 de 1039 trimestres
+[2026-11-23 00:36:47] Betas estimadas: 1024 de 1040 emisora-trimestres (ventana 36 meses, mínimo 24)
+[2026-11-23 00:36:47] Panel: 1039 de 1040 emisora-trimestres posibles
+[2026-11-23 00:36:47] Trimestres sin estados financieros: ['ATACOBC1.LM 2023Q1']
+[2026-11-23 00:36:47] Deuda material (>= 5.0 % del activo): 832 de 1039 emisora-trimestres; el resto se trata como no endeudado en el WACC
+[2026-11-23 00:36:47] Atípicos marcados (no eliminados): tasa efectiva fuera de 0-100 % = 98; kd > 40.0 % = 6
+[2026-11-23 00:36:47] Valores faltantes por variable: beta_bruta=16, beta=16, tasa_efectiva=185, kd=207, peso_deuda=18, ke=16, wacc=34, wacc_sin_escudo=34, reduccion_wacc=34
+[2026-11-23 00:36:47] Archivo anterior movido a datos_procesados\respaldos\datos_procesados_2024200521A_20261123_003647.csv
+[2026-11-23 00:36:47] Datos procesados: 1039 filas, 29 columnas, 20 emisoras, 2013Q1 a 2025Q4
+[2026-11-23 00:36:47] Guardado: datos_procesados\datos_procesados_2024200521A.csv (SHA-256 5613d24f71888554352a1d9e801dc219181fd362aea8abf7d7a11fa1197859de)
+[2026-11-23 00:36:48] Copia en Excel: datos_procesados\datos_procesados_2024200521A.xlsx
+[2026-11-23 00:36:48] ===== FIN. Estado: OK =====
+
+[2026-11-25 20:52:58] ===== INICIO DE ANÁLISIS (04_analisis.py) =====
+[2026-11-25 20:52:58] Leído datos_procesados_2024200521A.csv: 1039 filas (SHA-256 5613d24f71888554352a1d9e801dc219181fd362aea8abf7d7a11fa1197859de)
+[2026-11-25 20:52:58] Tabla: tabla1_descriptivos.csv y tabla1_descriptivos.tex
+[2026-11-25 20:52:58] Tabla: tabla2_por_anio.csv y tabla2_por_anio.tex
+[2026-11-25 20:52:58] Tabla: tabla3_por_empresa.csv y tabla3_por_empresa.tex
+[2026-11-25 20:52:58] Regresión (1) MCO agrupado: b(escudo)=69.654, ee=17.200, p=0.0007, R2=0.276, n=1015
+[2026-11-25 20:52:58] Regresión (2) Efectos fijos empresa: b(escudo)=47.944, ee=8.520, p=0.0000, R2=0.677, n=1015
+[2026-11-25 20:52:58] Regresión (3) EF empresa y año: b(escudo)=49.300, ee=7.251, p=0.0000, R2=0.694, n=1015
+[2026-11-25 20:52:58] Tabla: tabla4_regresion.csv y tabla4_regresion.tex
+[2026-11-25 20:52:58] Tabla: tabla5_hausman.csv y tabla5_hausman.tex
+[2026-11-25 20:52:58] Hausman: H=16.569, p=0.0023; Mundlak robusta: W=3.309, p=0.1912
+[2026-11-25 20:52:59] Figura: figura1_wacc_con_sin_escudo.png
+[2026-11-25 20:53:00] Figura: figura2_reduccion_por_empresa.png
+[2026-11-25 20:53:00] Figura: figura3_riesgo_pais_ke.png
+[2026-11-25 20:53:00] Figura: figura4_escudo_vs_deuda.png
+[2026-11-25 20:53:00] Observaciones: 1039 emisora-trimestres, 20 emisoras, 2013Q1 a 2025Q4
+[2026-11-25 20:53:00] Mediana WACC con escudo: 6.91 %
+[2026-11-25 20:53:00] Mediana WACC sin escudo: 7.55 %
+[2026-11-25 20:53:00] Mediana reducción del WACC por el escudo fiscal: 0.49 p. p.
+[2026-11-25 20:53:00] Mediana tasa efectiva (sin atípicos): 29.25 %
+[2026-11-25 20:53:00] Emisora con mayor reducción: EXALMC1 (1.08 p. p.)
+[2026-11-25 20:53:00] Emisora con menor reducción: BACKUSI1 (0.00 p. p.)
+[2026-11-25 20:53:00] Prueba de Hausman clásica: chi2(4) = 16.57, p = 0.002
+[2026-11-25 20:53:00] Prueba de Mundlak robusta: chi2(2) = 3.31, p = 0.191
+[2026-11-25 20:53:00] ===== FIN. Estado: OK =====
+
+[2026-11-25 21:28:29] ===== INICIO DE LIMPIEZA (03_limpieza_datos.py) =====
+[2026-11-25 21:28:29] Leído datos_crudos\datos_crudos_scraping_bvl_2024200521A.csv: 119664 filas (SHA-256 1d2109b626743a4f6e0de7b312160cfb63e1a0b79c9ea2d1615b1addb772c72e)
+[2026-11-25 21:28:29] Leído datos_crudos\datos_crudos_api_yahoo_2024200521A.csv: 3945 filas (SHA-256 22f19712846d061316a7e23ef09b075d59c1a75da963cc850de4de81884beb74)
+[2026-11-25 21:28:29] Leído datos_crudos\datos_crudos_api_bcrp_2024200521A.csv: 192 filas (SHA-256 38a83efae658265093d8804c77d7e11f08e0c699b648be9ee2373c03a62d6a4b)
+[2026-11-25 21:28:29] BVL: 920 cuentas reenviadas descartadas (se conserva el envío más reciente)
+[2026-11-25 21:28:30] ADVERTENCIA BVL: 9 trimestres con gasto financiero positivo en la fuente; se usa su valor absoluto
+[2026-11-25 21:28:30] Control: activo = pasivo + patrimonio en 1039 de 1039 trimestres
+[2026-11-25 21:28:30] Control: UAI - impuesto = utilidad de operaciones continuas en 1039 de 1039 trimestres
+[2026-11-25 21:28:31] Betas estimadas: 1024 de 1040 emisora-trimestres (ventana 36 meses, mínimo 24)
+[2026-11-25 21:28:31] Panel: 1039 de 1040 emisora-trimestres posibles
+[2026-11-25 21:28:31] Trimestres sin estados financieros: ['ATACOBC1.LM 2023Q1']
+[2026-11-25 21:28:31] Deuda material (>= 5.0 % del activo): 832 de 1039 emisora-trimestres; el resto se trata como no endeudado en el WACC
+[2026-11-25 21:28:31] Atípicos marcados (no eliminados): tasa efectiva fuera de 0-100 % = 98; kd > 40.0 % = 6
+[2026-11-25 21:28:31] Valores faltantes por variable: beta_bruta=16, beta=16, tasa_efectiva=185, kd=207, peso_deuda=18, ke=16, wacc=34, wacc_sin_escudo=34, reduccion_wacc=34
+[2026-11-25 21:28:31] Archivo anterior movido a datos_procesados\respaldos\datos_procesados_2024200521A_20261125_212831.csv
+[2026-11-25 21:28:31] Datos procesados: 1039 filas, 29 columnas, 20 emisoras, 2013Q1 a 2025Q4
+[2026-11-25 21:28:31] Guardado: datos_procesados\datos_procesados_2024200521A.csv (SHA-256 5613d24f71888554352a1d9e801dc219181fd362aea8abf7d7a11fa1197859de)
+[2026-11-25 21:28:32] Copia en Excel: datos_procesados\datos_procesados_2024200521A.xlsx
+[2026-11-25 21:28:32] ===== FIN. Estado: OK =====
+
+[2026-11-25 22:25:40] ===== INICIO DE ANÁLISIS (04_analisis.py) =====
+[2026-11-25 22:25:40] Leído datos_procesados_2024200521A.csv: 1039 filas (SHA-256 5613d24f71888554352a1d9e801dc219181fd362aea8abf7d7a11fa1197859de)
+[2026-11-25 22:25:40] Tabla: tabla1_descriptivos.csv y tabla1_descriptivos.tex
+[2026-11-25 22:25:40] Tabla: tabla2_por_anio.csv y tabla2_por_anio.tex
+[2026-11-25 22:25:40] Tabla: tabla3_por_empresa.csv y tabla3_por_empresa.tex
+[2026-11-25 22:25:40] Regresión (1) MCO agrupado: b(escudo)=69.654, ee=17.200, p=0.0007, R2=0.276, n=1015
+[2026-11-25 22:25:40] Regresión (2) Efectos fijos empresa: b(escudo)=47.944, ee=8.520, p=0.0000, R2=0.677, n=1015
+[2026-11-25 22:25:40] Regresión (3) EF empresa y año: b(escudo)=49.300, ee=7.251, p=0.0000, R2=0.694, n=1015
+[2026-11-25 22:25:40] Tabla: tabla4_regresion.csv y tabla4_regresion.tex
+[2026-11-25 22:25:40] Tabla: tabla5_hausman.csv y tabla5_hausman.tex
+[2026-11-25 22:25:40] Hausman: H=16.569, p=0.0023; Mundlak robusta: W=3.309, p=0.1912
+[2026-11-25 22:25:40] Figura: figura1_wacc_con_sin_escudo.png
+[2026-11-25 22:25:41] Figura: figura2_reduccion_por_empresa.png
+[2026-11-25 22:25:42] Figura: figura3_riesgo_pais_ke.png
+[2026-11-25 22:25:42] Figura: figura4_escudo_vs_deuda.png
+[2026-11-25 22:25:42] Observaciones: 1039 emisora-trimestres, 20 emisoras, 2013Q1 a 2025Q4
+[2026-11-25 22:25:42] Mediana WACC con escudo: 6.91 %
+[2026-11-25 22:25:42] Mediana WACC sin escudo: 7.55 %
+[2026-11-25 22:25:42] Mediana reducción del WACC por el escudo fiscal: 0.49 p. p.
+[2026-11-25 22:25:42] Mediana tasa efectiva (sin atípicos): 29.25 %
+[2026-11-25 22:25:42] Emisora con mayor reducción: EXALMC1 (1.08 p. p.)
+[2026-11-25 22:25:42] Emisora con menor reducción: BACKUSI1 (0.00 p. p.)
+[2026-11-25 22:25:42] Prueba de Hausman clásica: chi2(4) = 16.57, p = 0.002
+[2026-11-25 22:25:42] Prueba de Mundlak robusta: chi2(2) = 3.31, p = 0.191
+[2026-11-25 22:25:42] ===== FIN. Estado: OK =====
+
