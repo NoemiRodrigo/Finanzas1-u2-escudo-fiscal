@@ -1,0 +1,20 @@
+\begin{table}[htbp]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Prueba de Hausman: efectos fijos frente a efectos aleatorios}
+\label{tab:tabla5_hausman}
+\begin{tabular}{l>{\centering\arraybackslash}p{2.6cm}>{\centering\arraybackslash}p{2.6cm}>{\centering\arraybackslash}p{2.6cm}}
+\toprule
+Coeficiente & Efectos fijos & Efectos aleatorios & Diferencia \\
+\midrule
+Escudo fiscal / activos (\%) & 47,944 & 48,636 & $-$0,692 \\
+Rentabilidad del activo, ROA (\%) & $-$0,170 & $-$0,174 & 0,004 \\
+Riesgo país, EMBIG (\%) & 2,228 & 2,274 & $-$0,046 \\
+Tasa legal del IR (\%) & $-$1,691 & $-$1,659 & $-$0,032 \\
+Hausman clásica, chi² (4) & 16,57 & p = 0,002 &  \\
+Mundlak robusta, chi² (2) & 3,31 & p = 0,191 &  \\
+\bottomrule
+\end{tabular}
+\par\vspace{2pt}\footnotesize\raggedright \textit{Nota.} Variable dependiente: D/V (\%); 1015 observaciones de 20 emisoras. Efectos aleatorios por MCG factibles (Swamy-Arora). La prueba clásica compara los cuatro coeficientes con varianzas convencionales; la versión de Mundlak contrasta las medias de empresa del escudo y del ROA con errores agrupados por empresa. H0: los efectos de empresa no están correlacionados con los regresores (efectos aleatorios consistentes).
+\end{table}

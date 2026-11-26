@@ -1,4 +1,4 @@
-#  Estudiante: Noemi Julia Rodrigo Quinto
+# Estudiante: Noemi Julia Rodrigo Quinto
 # Código de matrícula: 2024200521A
 # Tema S10 · El costo del capital: El escudo fiscal y su efecto sobre el costo de capital de las empresas peruanas
 # Fecha de análisis: se registra en log_ejecucion.txt en cada ejecución
@@ -267,6 +267,87 @@ def tabla_regresion(d, log):
     return t, m
 
 
+def tabla_hausman(m, log):
+    # Tabla 5: prueba de Hausman (efectos fijos frente a efectos aleatorios)
+    # Modelo: D/V (%) = a_i + b1 escudo/activos + b2 ROA + b3 riesgo país + b4 tasa legal + e
+    y = m["peso_deuda"].values * 100
+    vars_x = ["escudo_fiscal_activos", "roa", "riesgo_pais", "tasa_legal"]
+    X = m[vars_x].values
+    n, k = X.shape
+    ids, idx = np.unique(m["ticker"].values, return_inverse=True)
+    G = len(ids)
+    T_i = np.bincount(idx)
+
+    def media_empresa(a):
+        # Cálculo: promedio de cada empresa, repetido en cada uno de sus trimestres
+        suma = np.zeros((G,) + a.shape[1:])
+        np.add.at(suma, idx, a)
+        return suma / (T_i[:, None] if a.ndim > 1 else T_i)
+
+    y_m, X_m = media_empresa(y), media_empresa(X)
+
+    # Efectos fijos (within)
+    # Cálculo: b_EF = MCO de (y - media de la empresa) sobre (X - media de la empresa)
+    y_w, X_w = y - y_m[idx], X - X_m[idx]
+    b_ef = np.linalg.lstsq(X_w, y_w, rcond=None)[0]
+    e_w = y_w - X_w @ b_ef
+    s2_e = (e_w @ e_w) / (n - G - k)                     # varianza del error idiosincrático
+    V_ef = s2_e * np.linalg.inv(X_w.T @ X_w)
+
+    # Efectos aleatorios (MCG factibles, Swamy-Arora para panel no balanceado)
+    # Cálculo: s2_u = varianza de la regresión entre empresas - s2_e / T armónico
+    #          theta_i = 1 - raíz(s2_e / (s2_e + T_i s2_u)); MCO de (y - theta_i ȳ_i) sobre (X - theta_i X̄_i)
+    Z_b = np.column_stack([np.ones(G), X_m])
+    e_b = y_m - Z_b @ np.linalg.lstsq(Z_b, y_m, rcond=None)[0]
+    s2_b = (e_b @ e_b) / (G - k - 1)
+    s2_u = max(s2_b - s2_e / (G / np.sum(1 / T_i)), 0.0)  # varianza del efecto de empresa
+    theta = 1 - np.sqrt(s2_e / (s2_e + T_i * s2_u))
+    y_q = y - theta[idx] * y_m[idx]
+    X_q = np.column_stack([1 - theta[idx], X - theta[idx][:, None] * X_m[idx]])
+    b_ea = np.linalg.lstsq(X_q, y_q, rcond=None)[0][1:]
+    V_ea = (s2_e * np.linalg.inv(X_q.T @ X_q))[1:, 1:]
+
+    # Prueba de Hausman clásica
+    # Cálculo: H = (b_EF - b_EA)' [V_EF - V_EA]^-1 (b_EF - b_EA) ~ chi2(k)
+    q = b_ef - b_ea
+    H = float(q @ np.linalg.pinv(V_ef - V_ea) @ q)
+    p_H = float(stats.chi2.sf(H, k))
+
+    # Versión robusta (Mundlak): agrega las medias de empresa del escudo y del ROA
+    # Cálculo: MCO de y sobre [1, X, X̄_i]; Wald conjunto de las medias = 0 con errores agrupados por empresa
+    Z = np.column_stack([np.ones(n), X, X_m[idx][:, :2]])
+    b_z = np.linalg.lstsq(Z, y, rcond=None)[0]
+    e_z = y - Z @ b_z
+    ztz_inv = np.linalg.pinv(Z.T @ Z)
+    carne = np.zeros((Z.shape[1], Z.shape[1]))
+    for g in range(G):
+        s = Z[idx == g].T @ e_z[idx == g]
+        carne += np.outer(s, s)
+    V_z = (G / (G - 1)) * ((n - 1) / (n - Z.shape[1])) * ztz_inv @ carne @ ztz_inv
+    gamma = b_z[-2:]
+    W = float(gamma @ np.linalg.inv(V_z[-2:, -2:]) @ gamma)
+    p_W = float(stats.chi2.sf(W, 2))
+
+    filas = {}
+    for i, v in enumerate(vars_x):
+        filas[ETIQUETAS[v]] = {"Efectos fijos": numero_es(b_ef[i], 3), "Efectos aleatorios": numero_es(b_ea[i], 3),
+                               "Diferencia": numero_es(q[i], 3)}
+    filas["Hausman clásica, chi² (4)"] = {"Efectos fijos": numero_es(H, 2),
+                                          "Efectos aleatorios": f"p = {numero_es(p_H, 3)}", "Diferencia": ""}
+    filas["Mundlak robusta, chi² (2)"] = {"Efectos fijos": numero_es(W, 2),
+                                          "Efectos aleatorios": f"p = {numero_es(p_W, 3)}", "Diferencia": ""}
+    t = pd.DataFrame(filas).T
+    t.index.name = "Coeficiente"
+    guardar_tabla(t, "tabla5_hausman", "Prueba de Hausman: efectos fijos frente a efectos aleatorios",
+                  f"Variable dependiente: D/V (%); {n} observaciones de {G} emisoras. Efectos aleatorios por MCG "
+                  "factibles (Swamy-Arora). La prueba clásica compara los cuatro coeficientes con varianzas "
+                  "convencionales; la versión de Mundlak contrasta las medias de empresa del escudo y del ROA con "
+                  "errores agrupados por empresa. H0: los efectos de empresa no están correlacionados con los "
+                  "regresores (efectos aleatorios consistentes).", log, ancho="2.6cm")
+    registrar(f"Hausman: H={H:.3f}, p={p_H:.4f}; Mundlak robusta: W={W:.3f}, p={p_W:.4f}", log)
+    return H, p_H, W, p_W
+
+
 # =============================================================================
 # 5. FIGURAS
 # =============================================================================
@@ -360,6 +441,7 @@ def main():
         t2 = tabla_por_anio(d, log)
         t3 = tabla_por_empresa(d, log)
         t4, muestra = tabla_regresion(d, log)
+        H, p_H, W, p_W = tabla_hausman(muestra, log)
         figura_wacc(d, log)
         figura_empresas(t3, log)
         figura_riesgo_pais(d, log)
@@ -377,6 +459,8 @@ def main():
             f"Mediana tasa efectiva (sin atípicos): {med['tasa_efectiva']:.2f} %",
             f"Emisora con mayor reducción: {t3.index[0]} ({t3.iloc[0][ETIQUETAS['reduccion_wacc']]:.2f} p. p.)",
             f"Emisora con menor reducción: {t3.index[-1]} ({t3.iloc[-1][ETIQUETAS['reduccion_wacc']]:.2f} p. p.)",
+            f"Prueba de Hausman clásica: chi2(4) = {H:.2f}, p = {p_H:.3f}",
+            f"Prueba de Mundlak robusta: chi2(2) = {W:.2f}, p = {p_W:.3f}",
         ]
         (SALIDAS / "resumen_resultados.txt").write_text("\n".join(resumen) + "\n", encoding="utf-8")
         for linea in resumen[1:]:
