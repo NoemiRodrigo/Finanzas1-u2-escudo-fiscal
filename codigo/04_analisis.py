@@ -108,6 +108,7 @@ def guardar_tabla(tabla, nombre, titulo, nota, log, decimales=2, ancho="1.5cm"):
             escapar_latex(v) if isinstance(v, str) else numero_es(v, decimales) for v in fila]
         # Signo menos tipográfico en los valores negativos
         celdas = [c if i == 0 or not c.startswith("-") else "$-$" + c[1:] for i, c in enumerate(celdas)]
+        celdas = [c if i == 0 else c.replace("= -", "= $-$") for i, c in enumerate(celdas)]
         lineas.append(" & ".join(celdas) + r" \\")
     lineas += [r"\bottomrule", r"\end{tabular}",
                rf"\par\vspace{{2pt}}\footnotesize\raggedright \textit{{Nota.}} {escapar_latex(nota)}",
@@ -165,6 +166,11 @@ def mco_cluster(y, X, grupos):
     p = 2 * stats.t.sf(np.abs(t), G - 1)       # t con G-1 grados de libertad
     r2 = 1 - (e @ e) / ((y - y.mean()) @ (y - y.mean()))
     return b, ee, p, r2, n
+
+
+def valor_p(p):
+    # Valor p con coma decimal; los muy pequeños se muestran como "< 0,001"
+    return "< 0,001" if p < 0.001 else numero_es(p, 3)
 
 
 def estrellas(p):
@@ -339,13 +345,148 @@ def tabla_hausman(m, log):
     t = pd.DataFrame(filas).T
     t.index.name = "Coeficiente"
     guardar_tabla(t, "tabla5_hausman", "Prueba de Hausman: efectos fijos frente a efectos aleatorios",
-                  f"Variable dependiente: D/V (%); {n} observaciones de {G} emisoras. Efectos aleatorios por MCG "
+                  f"Variable dependiente: D/V (%); {f'{n:,}'.replace(',', ' ')} observaciones de {G} emisoras. Efectos aleatorios por MCG "
                   "factibles (Swamy-Arora). La prueba clásica compara los cuatro coeficientes con varianzas "
                   "convencionales; la versión de Mundlak contrasta las medias de empresa del escudo y del ROA con "
                   "errores agrupados por empresa. H0: los efectos de empresa no están correlacionados con los "
                   "regresores (efectos aleatorios consistentes).", log, ancho="2.6cm")
     registrar(f"Hausman: H={H:.3f}, p={p_H:.4f}; Mundlak robusta: W={W:.3f}, p={p_W:.4f}", log)
     return H, p_H, W, p_W
+
+
+def indice_trimestre(periodo):
+    # "2013Q1" -> 8052 ; trimestres consecutivos difieren en 1
+    return int(periodo[:4]) * 4 + int(periodo[-1]) - 1
+
+
+def con_rezago(m, d, variable, rezago):
+    # Agrega a la muestra m el valor de la variable de la misma emisora "rezago" trimestres antes
+    # Se busca en la base completa d, así un trimestre faltante no desplaza el rezago
+    previo = d[["ticker", "periodo", variable]].copy()
+    previo["q"] = previo["periodo"].map(indice_trimestre) + rezago
+    previo = previo.rename(columns={variable: f"{variable}_r{rezago}"}).drop(columns="periodo")
+    m = m.copy()
+    m["q"] = m["periodo"].map(indice_trimestre)
+    return m.merge(previo, on=["ticker", "q"], how="left")
+
+
+def tabla_diagnostico(m, d, log):
+    # Tabla 6: pruebas de diagnóstico del modelo de efectos fijos de empresa (columna 2 de la Tabla 4)
+    vars_x = ["escudo_fiscal_activos", "roa", "riesgo_pais", "tasa_legal"]
+    m = m.sort_values(["ticker", "periodo"]).reset_index(drop=True)
+    y = m["peso_deuda"].values * 100
+    grupos = m["ticker"].values
+    ids, idx = np.unique(grupos, return_inverse=True)
+    G, n = len(ids), len(m)
+    ef_empresa = pd.get_dummies(m["ticker"], drop_first=True, dtype=float).values
+    X = np.hstack([np.ones((n, 1)), m[vars_x].values, ef_empresa])
+    b = np.linalg.lstsq(X, y, rcond=None)[0]
+    e = y - X @ b                                        # residuos del modelo de efectos fijos
+    filas = {}
+
+    # 1) Multicolinealidad: factor de inflación de la varianza
+    # Cálculo: VIF_j = 1 / (1 - R²_j), R²_j de regresar x_j sobre los demás regresores
+    vif = {}
+    for j, v in enumerate(vars_x):
+        otros = np.column_stack([np.ones(n), np.delete(m[vars_x].values, j, axis=1)])
+        xj = m[v].values
+        r = xj - otros @ np.linalg.lstsq(otros, xj, rcond=None)[0]
+        vif[v] = 1 / (r @ r / ((xj - xj.mean()) @ (xj - xj.mean())))
+    v_max = max(vif.values())
+    filas["Multicolinealidad (VIF máx.)"] = [numero_es(v_max, 2), "",
+                                               "No hay" if v_max < 5 else "Sí hay"]
+
+    # 2) Heterocedasticidad entre emisoras: Wald modificado (Greene, 2018)
+    # Cálculo: W = Σ (s²_i - s²)² / V_i ; V_i = Σ (e²_it - s²_i)² / [T_i (T_i - 1)] ; W ~ chi2(G)
+    T_i = np.bincount(idx)
+    s2_i = np.bincount(idx, weights=e ** 2) / T_i
+    s2 = e @ e / n
+    V_i = np.bincount(idx, weights=(e ** 2 - s2_i[idx]) ** 2) / (T_i * (T_i - 1))
+    W_h = float(np.sum((s2_i - s2) ** 2 / V_i))
+    p_h = float(stats.chi2.sf(W_h, G))
+    filas["Heterocedasticidad (Wald mod.)"] = [f"chi²({G}) = {numero_es(W_h, 1)}", valor_p(p_h),
+                                                     "Sí; errores agrupados" if p_h < 0.05 else "No hay"]
+
+    # 3) Autocorrelación de primer orden: Wooldridge (2010)
+    # Cálculo: MCO en primeras diferencias; el residuo se regresa sobre su rezago; H0: coeficiente = -0,5
+    m["q"] = m["periodo"].map(indice_trimestre)
+    consecutivo = (m["ticker"] == m["ticker"].shift(1)) & (m["q"] - m["q"].shift(1) == 1)
+    Dy = (pd.Series(y) - pd.Series(y).shift(1))[consecutivo].values
+    DX = (m[vars_x] - m[vars_x].shift(1))[consecutivo].values
+    u = Dy - DX @ np.linalg.lstsq(DX, Dy, rcond=None)[0]
+    du = pd.DataFrame({"g": grupos[consecutivo.values], "q": m["q"][consecutivo].values, "u": u})
+    du["u_r"] = du.groupby("g")["u"].shift(1)
+    du = du[(du["g"] == du["g"].shift(1)) & (du["q"] - du["q"].shift(1) == 1)]
+    b_w, ee_w, _, _, _ = mco_cluster(du["u"].values, du[["u_r"]].values, du["g"].values)
+    F_w = float(((b_w[0] + 0.5) / ee_w[0]) ** 2)
+    G_w = du["g"].nunique()
+    p_w = float(stats.f.sf(F_w, 1, G_w - 1))
+    filas["Autocorrelación (Wooldridge)"] = [f"F(1, {G_w - 1}) = {numero_es(F_w, 1)}", valor_p(p_w),
+                                             "Sí; errores agrupados" if p_w < 0.05 else "No hay"]
+
+    # 4) Dependencia transversal entre emisoras: CD de Pesaran (2004)
+    # Cálculo: CD = raíz(2 / (G (G - 1))) Σ_i<j raíz(T_ij) ρ_ij, con ρ_ij correlación de residuos de i y j
+    E = pd.DataFrame({"g": grupos, "periodo": m["periodo"], "e": e}).pivot(index="periodo", columns="g", values="e")
+    suma = 0.0
+    for i in range(G):
+        for j in range(i + 1, G):
+            par = E.iloc[:, [i, j]].dropna()
+            if len(par) > 3:
+                suma += np.sqrt(len(par)) * np.corrcoef(par.iloc[:, 0], par.iloc[:, 1])[0, 1]
+    CD = float(np.sqrt(2 / (G * (G - 1))) * suma)
+    p_cd = float(2 * stats.norm.sf(abs(CD)))
+    filas["Dependencia entre emisoras (CD)"] = [numero_es(CD, 2), valor_p(p_cd),
+                                                     "Sí hay" if p_cd < 0.05 else "No hay"]
+
+    # 5) Endogeneidad del escudo: función de control (Wooldridge, 2010)
+    # Cálculo: etapa 1: escudo sobre su valor de 4 trimestres antes y los demás regresores (con efectos fijos);
+    #          etapa 2: se agrega el residuo de la etapa 1; si es significativo, el escudo no es exógeno
+    r = con_rezago(m, d, "escudo_fiscal_activos", 4).dropna(subset=["escudo_fiscal_activos_r4"])
+    y_r = r["peso_deuda"].values * 100
+    ef_r = pd.get_dummies(r["ticker"], drop_first=True, dtype=float).values
+    otros = np.hstack([np.ones((len(r), 1)), r[vars_x[1:]].values, ef_r])
+    Z1 = np.hstack([r[["escudo_fiscal_activos_r4"]].values, otros])
+    x1 = r["escudo_fiscal_activos"].values
+    b1, ee1, _, _, _ = mco_cluster(x1, Z1, r["ticker"].values)
+    v = x1 - Z1 @ b1
+    X2 = np.hstack([r[["escudo_fiscal_activos"]].values, v[:, None], otros])
+    b2, ee2, p2, _, _ = mco_cluster(y_r, X2, r["ticker"].values)
+    t_v = float(b2[1] / ee2[1])
+    filas["Endogeneidad del escudo"] = [f"t = {numero_es(t_v, 2)}", valor_p(float(p2[1])),
+                                                             "Sí; se lee como asociación" if p2[1] < 0.05 else "No hay"]
+
+    # 6) Robustez: el mismo modelo con el escudo de 1 y 4 trimestres antes
+    # Si la relación se mantiene con el escudo pasado, no se explica solo por el cálculo del mismo trimestre
+    for rezago in [1, 4]:
+        r = con_rezago(m, d, "escudo_fiscal_activos", rezago).dropna(subset=[f"escudo_fiscal_activos_r{rezago}"])
+        X_r = np.hstack([np.ones((len(r), 1)), r[[f"escudo_fiscal_activos_r{rezago}"] + vars_x[1:]].values,
+                         pd.get_dummies(r["ticker"], drop_first=True, dtype=float).values])
+        b_r, ee_r, p_r, _, n_r = mco_cluster(r["peso_deuda"].values * 100, X_r, r["ticker"].values)
+        texto = "trimestre" if rezago == 1 else "trimestres"
+        filas[f"Escudo de {rezago} {texto} antes"] = [f"b = {numero_es(b_r[1], 3)} ({numero_es(ee_r[1], 3)})",
+                                                      valor_p(float(p_r[1])),
+                                                      "Se mantiene" if p_r[1] < 0.05 and b_r[1] > 0 else "No se mantiene"]
+        registrar(f"Robustez escudo rezagado {rezago}: b={b_r[1]:.3f}, ee={ee_r[1]:.3f}, p={p_r[1]:.4f}, n={n_r}", log)
+
+    t = pd.DataFrame(filas, index=["Estadístico", "Valor p", "Resultado"]).T
+    t.index.name = "Prueba"
+    nombres_vif = {"escudo_fiscal_activos": "escudo fiscal", "roa": "ROA", "riesgo_pais": "riesgo país",
+                   "tasa_legal": "tasa legal"}
+    vif_txt = "; ".join(f"{nombres_vif[k]} {numero_es(x, 2)}" for k, x in vif.items())
+    guardar_tabla(t, "tabla6_diagnostico", "Pruebas de diagnóstico y robustez del modelo de efectos fijos",
+                  f"Modelo (2) de la Tabla 4: {f'{n:,}'.replace(',', ' ')} observaciones de {G} emisoras. VIF por variable: "
+                  f"{vif_txt}; se considera alto por encima de 5. H0 de cada prueba: varianza del error igual en todas "
+                  "las emisoras (Wald modificado); sin autocorrelación de primer orden (Wooldridge); residuos no "
+                  "correlacionados entre emisoras (CD de Pesaran); escudo exógeno (función de control, con el escudo de "
+                  f"cuatro trimestres antes como instrumento; etapa 1: t = {numero_es(float(b1[0] / ee1[0]), 2)}). "
+                  "Las dos últimas filas repiten el modelo con el escudo de trimestres anteriores (coeficiente y error estándar "
+                  "agrupado por empresa). Los errores agrupados por emisora son válidos con heterocedasticidad y "
+                  "autocorrelación dentro de cada emisora.",
+                  log, ancho="2.7cm")
+    registrar(f"Diagnóstico: VIF máx={v_max:.2f}; Wald het={W_h:.1f} (p={p_h:.4f}); Wooldridge F={F_w:.2f} "
+              f"(p={p_w:.4f}); Pesaran CD={CD:.2f} (p={p_cd:.4f}); endogeneidad t={t_v:.2f} (p={p2[1]:.4f})", log)
+    return {"vif": v_max, "W_h": W_h, "p_h": p_h, "F_w": F_w, "p_w": p_w, "CD": CD, "p_cd": p_cd,
+            "t_v": t_v, "p_v": float(p2[1])}
 
 
 # =============================================================================
@@ -442,6 +583,7 @@ def main():
         t3 = tabla_por_empresa(d, log)
         t4, muestra = tabla_regresion(d, log)
         H, p_H, W, p_W = tabla_hausman(muestra, log)
+        diag = tabla_diagnostico(muestra, d, log)
         figura_wacc(d, log)
         figura_empresas(t3, log)
         figura_riesgo_pais(d, log)
@@ -461,6 +603,11 @@ def main():
             f"Emisora con menor reducción: {t3.index[-1]} ({t3.iloc[-1][ETIQUETAS['reduccion_wacc']]:.2f} p. p.)",
             f"Prueba de Hausman clásica: chi2(4) = {H:.2f}, p = {p_H:.3f}",
             f"Prueba de Mundlak robusta: chi2(2) = {W:.2f}, p = {p_W:.3f}",
+            f"VIF máximo: {diag['vif']:.2f}",
+            f"Heterocedasticidad (Wald modificado): chi2 = {diag['W_h']:.1f}, p = {diag['p_h']:.4f}",
+            f"Autocorrelación (Wooldridge): F = {diag['F_w']:.2f}, p = {diag['p_w']:.4f}",
+            f"Dependencia transversal (Pesaran CD): {diag['CD']:.2f}, p = {diag['p_cd']:.4f}",
+            f"Endogeneidad del escudo (función de control): t = {diag['t_v']:.2f}, p = {diag['p_v']:.4f}",
         ]
         (SALIDAS / "resumen_resultados.txt").write_text("\n".join(resumen) + "\n", encoding="utf-8")
         for linea in resumen[1:]:

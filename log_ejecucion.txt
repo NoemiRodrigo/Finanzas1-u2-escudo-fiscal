@@ -414,3 +414,38 @@
 [2026-11-25 22:25:42] Prueba de Mundlak robusta: chi2(2) = 3.31, p = 0.191
 [2026-11-25 22:25:42] ===== FIN. Estado: OK =====
 
+[2026-11-27 12:28:20] ===== INICIO DE ANÁLISIS (04_analisis.py) =====
+[2026-11-27 12:28:20] Leído datos_procesados_2024200521A.csv: 1039 filas (SHA-256 5613d24f71888554352a1d9e801dc219181fd362aea8abf7d7a11fa1197859de)
+[2026-11-27 12:28:20] Tabla: tabla1_descriptivos.csv y tabla1_descriptivos.tex
+[2026-11-27 12:28:20] Tabla: tabla2_por_anio.csv y tabla2_por_anio.tex
+[2026-11-27 12:28:20] Tabla: tabla3_por_empresa.csv y tabla3_por_empresa.tex
+[2026-11-27 12:28:20] Regresión (1) MCO agrupado: b(escudo)=69.654, ee=17.200, p=0.0007, R2=0.276, n=1015
+[2026-11-27 12:28:20] Regresión (2) Efectos fijos empresa: b(escudo)=47.944, ee=8.520, p=0.0000, R2=0.677, n=1015
+[2026-11-27 12:28:20] Regresión (3) EF empresa y año: b(escudo)=49.300, ee=7.251, p=0.0000, R2=0.694, n=1015
+[2026-11-27 12:28:20] Tabla: tabla4_regresion.csv y tabla4_regresion.tex
+[2026-11-27 12:28:20] Tabla: tabla5_hausman.csv y tabla5_hausman.tex
+[2026-11-27 12:28:20] Hausman: H=16.569, p=0.0023; Mundlak robusta: W=3.309, p=0.1912
+[2026-11-27 12:28:21] Robustez escudo rezagado 1: b=35.576, ee=7.793, p=0.0002, n=995
+[2026-11-27 12:28:21] Robustez escudo rezagado 4: b=23.675, ee=5.469, p=0.0004, n=935
+[2026-11-27 12:28:21] Tabla: tabla6_diagnostico.csv y tabla6_diagnostico.tex
+[2026-11-27 12:28:21] Diagnóstico: VIF máx=1.27; Wald het=3411.7 (p=0.0000); Wooldridge F=21.79 (p=0.0002); Pesaran CD=-0.08 (p=0.9325); endogeneidad t=-3.22 (p=0.0045)
+[2026-11-27 12:28:21] Figura: figura1_wacc_con_sin_escudo.png
+[2026-11-27 12:28:22] Figura: figura2_reduccion_por_empresa.png
+[2026-11-27 12:28:23] Figura: figura3_riesgo_pais_ke.png
+[2026-11-27 12:28:23] Figura: figura4_escudo_vs_deuda.png
+[2026-11-27 12:28:23] Observaciones: 1039 emisora-trimestres, 20 emisoras, 2013Q1 a 2025Q4
+[2026-11-27 12:28:23] Mediana WACC con escudo: 6.91 %
+[2026-11-27 12:28:23] Mediana WACC sin escudo: 7.55 %
+[2026-11-27 12:28:23] Mediana reducción del WACC por el escudo fiscal: 0.49 p. p.
+[2026-11-27 12:28:23] Mediana tasa efectiva (sin atípicos): 29.25 %
+[2026-11-27 12:28:23] Emisora con mayor reducción: EXALMC1 (1.08 p. p.)
+[2026-11-27 12:28:23] Emisora con menor reducción: BACKUSI1 (0.00 p. p.)
+[2026-11-27 12:28:23] Prueba de Hausman clásica: chi2(4) = 16.57, p = 0.002
+[2026-11-27 12:28:23] Prueba de Mundlak robusta: chi2(2) = 3.31, p = 0.191
+[2026-11-27 12:28:23] VIF máximo: 1.27
+[2026-11-27 12:28:23] Heterocedasticidad (Wald modificado): chi2 = 3411.7, p = 0.0000
+[2026-11-27 12:28:23] Autocorrelación (Wooldridge): F = 21.79, p = 0.0002
+[2026-11-27 12:28:23] Dependencia transversal (Pesaran CD): -0.08, p = 0.9325
+[2026-11-27 12:28:23] Endogeneidad del escudo (función de control): t = -3.22, p = 0.0045
+[2026-11-27 12:28:23] ===== FIN. Estado: OK =====
+

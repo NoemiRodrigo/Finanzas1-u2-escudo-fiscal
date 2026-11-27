@@ -1,0 +1,21 @@
+\begin{table}[htbp]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Pruebas de diagnóstico y robustez del modelo de efectos fijos}
+\label{tab:tabla6_diagnostico}
+\begin{tabular}{l>{\centering\arraybackslash}p{2.7cm}>{\centering\arraybackslash}p{2.7cm}>{\centering\arraybackslash}p{2.7cm}}
+\toprule
+Prueba & Estadístico & Valor p & Resultado \\
+\midrule
+Multicolinealidad (VIF máx.) & 1,27 &  & No hay \\
+Heterocedasticidad (Wald mod.) & chi²(20) = 3 411,7 & < 0,001 & Sí; errores agrupados \\
+Autocorrelación (Wooldridge) & F(1, 19) = 21,8 & < 0,001 & Sí; errores agrupados \\
+Dependencia entre emisoras (CD) & $-$0,08 & 0,933 & No hay \\
+Endogeneidad del escudo & t = $-$3,22 & 0,004 & Sí; se lee como asociación \\
+Escudo de 1 trimestre antes & b = 35,576 (7,793) & < 0,001 & Se mantiene \\
+Escudo de 4 trimestres antes & b = 23,675 (5,469) & < 0,001 & Se mantiene \\
+\bottomrule
+\end{tabular}
+\par\vspace{2pt}\footnotesize\raggedright \textit{Nota.} Modelo (2) de la Tabla 4: 1 015 observaciones de 20 emisoras. VIF por variable: escudo fiscal 1,01; ROA 1,02; riesgo país 1,26; tasa legal 1,27; se considera alto por encima de 5. H0 de cada prueba: varianza del error igual en todas las emisoras (Wald modificado); sin autocorrelación de primer orden (Wooldridge); residuos no correlacionados entre emisoras (CD de Pesaran); escudo exógeno (función de control, con el escudo de cuatro trimestres antes como instrumento; etapa 1: t = 4,06). Las dos últimas filas repiten el modelo con el escudo de trimestres anteriores (coeficiente y error estándar agrupado por empresa). Los errores agrupados por emisora son válidos con heterocedasticidad y autocorrelación dentro de cada emisora.
+\end{table}

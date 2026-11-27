@@ -156,6 +156,7 @@ Librerías (versiones exactas en `requirements.txt`):
 | `tabla3_por_empresa` (.csv, .tex) | Escudo fiscal y WACC por emisora (medianas) |
 | `tabla4_regresion` (.csv, .tex) | Regresión de panel: escudo fiscal y endeudamiento |
 | `tabla5_hausman` (.csv, .tex) | Prueba de Hausman (efectos fijos frente a aleatorios) y su versión robusta de Mundlak |
+| `tabla6_diagnostico` (.csv, .tex) | Diagnóstico y robustez: multicolinealidad (VIF), heterocedasticidad, autocorrelación, dependencia entre emisoras, endogeneidad del escudo y regresión con el escudo de 1 y 4 trimestres antes |
 | `figura1_wacc_con_sin_escudo.png` | WACC con y sin escudo fiscal, mediana trimestral |
 | `figura2_reduccion_por_empresa.png` | Reducción del WACC por emisora |
 | `figura3_riesgo_pais_ke.png` | Riesgo país (BCRP) y costo del patrimonio |
@@ -165,6 +166,10 @@ Librerías (versiones exactas en `requirements.txt`):
 **Resultados principales:** mediana del WACC de 6,91 % con escudo y 7,55 % sin escudo; reducción mediana atribuible
 al escudo fiscal de 0,49 puntos porcentuales (máximo por emisora: EXALMC1, 1,08 p. p.); tasa efectiva mediana de
 29,25 %; coeficiente del escudo fiscal sobre activos en el panel con efectos fijos de empresa y año: 49,300 (p < 0,01).
+Diagnóstico del modelo (tabla 6): sin multicolinealidad (VIF máximo 1,27); con heterocedasticidad y autocorrelación,
+cubiertas por los errores agrupados por empresa; sin dependencia entre emisoras (Pesaran CD, p = 0,93). El escudo no es
+exógeno (función de control, p = 0,004), por lo que la relación se interpreta como asociación; se mantiene con el escudo
+de 1 y 4 trimestres antes (misma tabla 6).
 
 Cada fuente participa en al menos un resultado: BVL (escudo fiscal, kd), Yahoo Finance (beta y tasa libre de
 riesgo → ke) y BCRP (riesgo país e índice de mercado → ke; Figura 3).
@@ -183,7 +188,7 @@ riesgo → ke) y BCRP (riesgo país e índice de mercado → ke; Figura 3).
 - Los datos provienen íntegramente de la ejecución de los scripts de este repositorio.
 - Los datos crudos se conservan tal como salieron de la fuente, sin edición.
 - El scraping registra el `robots.txt` de cada dominio (ninguno publica reglas de rastreo), usa una pausa de 1,5 s entre solicitudes y un User-Agent identificable.
-- Se utilizó asistencia de IA (Claude, de Anthropic) para escribir y depurar el código y redactar la documentación, bajo revisión y comprensión de la autora, conforme a lo permitido en la consigna. La autora ejecutó todos los scripts y verificó los datos contra la fuente.
+- Se utilizó asistencia de IA (Claude, de Anthropic) para escribir y depurar el código y redactar la documentación, bajo revisión y comprensión de la estudiante, conforme a lo permitido en la consigna. La estudiante ejecutó todos los scripts y verificó los datos contra la fuente.
 
 ## 11. Cita de las fuentes (APA 7.ª edición)
 

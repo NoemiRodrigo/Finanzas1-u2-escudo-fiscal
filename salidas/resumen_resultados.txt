@@ -1,4 +1,4 @@
-Resumen de resultados — 2026-11-25 20:53
+Resumen de resultados — 2026-11-27 12:28
 Observaciones: 1039 emisora-trimestres, 20 emisoras, 2013Q1 a 2025Q4
 Mediana WACC con escudo: 6.91 %
 Mediana WACC sin escudo: 7.55 %
@@ -8,3 +8,8 @@ Emisora con mayor reducción: EXALMC1 (1.08 p. p.)
 Emisora con menor reducción: BACKUSI1 (0.00 p. p.)
 Prueba de Hausman clásica: chi2(4) = 16.57, p = 0.002
 Prueba de Mundlak robusta: chi2(2) = 3.31, p = 0.191
+VIF máximo: 1.27
+Heterocedasticidad (Wald modificado): chi2 = 3411.7, p = 0.0000
+Autocorrelación (Wooldridge): F = 21.79, p = 0.0002
+Dependencia transversal (Pesaran CD): -0.08, p = 0.9325
+Endogeneidad del escudo (función de control): t = -3.22, p = 0.0045

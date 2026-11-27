@@ -1,0 +1,8 @@
+Prueba,Estadístico,Valor p,Resultado
+Multicolinealidad (VIF máx.),"1,27",,No hay
+Heterocedasticidad (Wald mod.),"chi²(20) = 3 411,7","< 0,001",Sí; errores agrupados
+Autocorrelación (Wooldridge),"F(1, 19) = 21,8","< 0,001",Sí; errores agrupados
+Dependencia entre emisoras (CD),"-0,08","0,933",No hay
+Endogeneidad del escudo,"t = -3,22","0,004",Sí; se lee como asociación
+Escudo de 1 trimestre antes,"b = 35,576 (7,793)","< 0,001",Se mantiene
+Escudo de 4 trimestres antes,"b = 23,675 (5,469)","< 0,001",Se mantiene
